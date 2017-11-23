@@ -1,6 +1,7 @@
 from gameobjects import GameObject
 from move import Move
-
+import math
+import heapq
 
 class Agent:
     def get_move(self, board, score, turns_alive, turns_to_starve, direction):
@@ -38,6 +39,23 @@ class Agent:
         Move.LEFT and Move.RIGHT changes the direction of the snake. In example, if the snake is facing north and the
         move left is made, the snake will go one block to the left and change its direction to west.
         """
+        frontier = PriorityQueue()
+        start = self.find_head(self, board, board.height, board.width)
+        frontier.put(start, 0)
+        came_from = {}
+        cost_so_far = {}
+        came_from[start] = None
+        cost_so_far[start] = 0
+
+        goal = None
+
+        while not frontier.empty():
+            current = frontier.get()
+
+            if current == goal:
+                break
+
+            for next in
 
         return Move.STRAIGHT
 
@@ -48,3 +66,46 @@ class Agent:
         snake or to host a funeral.
         """
         pass
+
+    def heuristic(self, a, b):
+            (x1, y1) = a
+            (x2, y2) = b
+            return abs(x1 - x2) + abs(y1 - y2)
+
+    def find_head(self, board, height, width):
+        for i in range(height):
+            for j in range(width):
+                if(board[i][j] == GameObject.SNAKE_HEAD):
+                    return (i,j)
+
+    def find_goal(self, board, height, width, head):
+        results = []
+
+        for i in range(height):
+            for j in range(width):
+                if(board[i][j] == GameObject.FOOD):
+                        results.append((i, j))
+
+        bestScore = self.heuristic(self, head, results[0])
+        bestOption = results[0]
+
+        for i in range(len(results)):
+            if(bestScore > self.heuristic(self, head, results[i])):
+                bestScore = self.heuristic(self, head, results[i])
+                bestOption = results[i]
+
+        return bestOption
+
+
+class PriorityQueue:
+    def __init__(self):
+        self.elements = []
+
+    def empty(self):
+        return len(self.elements) == 0
+
+    def put(self, item, priority):
+        heapq.heappush(self.elements, (priority, item))
+
+    def get(self):
+        return heapq.heappop(self.elements)[1]
