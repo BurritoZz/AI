@@ -1,9 +1,12 @@
 from gameobjects import GameObject
 from move import Move
+import heapq
+from board import Board
 
 
 class Agent:
-    def get_move(self, board, score, turns_alive, turns_to_starve, direction):
+    def get_move(self, board: Board, score, turns_alive,
+                 turns_to_starve, direction):
         """This function behaves as the 'brain' of the snake. You only need to
         change the code in this function for the project. Every turn the agent
         needs to return a move. This move will be executed by the snake. If
@@ -84,21 +87,24 @@ class AStar(object):
         heapq.heapify(self.opened)
         self.closed = set()
         self.cells = []
-        self.board_height = board.HEIGHT
-        self.board_width = board.WIDTH
+        self.grid_height = 25
+        self.grid_width = 25
+        self.board = board
+        self.end = None
 
     def init_grid(self):
         self.start = None
         for x in range(self.grid_width):
             for y in range(self.grid_height):
-                if board[x][y] == GameObject.WALL or board[x][y] == GameObject.SNAKE_BODY:
-                    reachable = false
+                if self.board[x][y] == GameObject.WALL \
+                        or self.board[x][y] == GameObject.SNAKE_BODY:
+                    reachable = False
                 else:
-                    reachable = true
+                    reachable = True
                 self.cells.append(Cell(x, y, reachable))
-                if board[x][y] == GameObject.SNAKE_HEAD:
+                if self.board[x][y] == GameObject.SNAKE_HEAD:
                     self.start = self.get_cell(x, y)
-                if board[x][y] == GameObject.FOOD:
+                if self.board[x][y] == GameObject.FOOD:
                     self.end == self.get_cell(x, y)
 
     def get_heuristic(self, cell):
@@ -147,7 +153,7 @@ class AStar(object):
             adj_cells = self.get_adjacent_cells(cell)
             for adj_cell in adj_cells:
                 if adj_cell.reachable and adj_cell not in self.closed:
-                    if (adj_cell.f, adj.cell) in self.opened:
+                    if (adj_cell.f, adj_cell) in self.opened:
                         # if adj cell in open list, check if current path is
                         # better than the one previously found for this adj
                         # cell
