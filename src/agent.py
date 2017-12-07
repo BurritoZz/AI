@@ -1,6 +1,8 @@
 from gameobjects import GameObject
 from move import Move
+from move import Direction
 import heapq
+import math
 from board import Board
 
 
@@ -56,8 +58,35 @@ class Agent:
         """
         aStar = AStar(board)
         aStar.init_grid()
-        aStar.process()
-
+        nextDirection = aStar.process()
+        if direction == Direction.NORTH:
+            if nextDirection == Direction.WEST:
+                return Move.LEFT
+            elif nextDirection == Direction.EAST:
+                return Move.RIGHT
+            elif nextDirection == Direction.SOUTH:
+                return Move.LEFT
+        elif direction == Direction.EAST:
+            if nextDirection == Direction.NORTH:
+                return Move.LEFT
+            elif nextDirection == Direction.SOUTH:
+                return Move.RIGHT
+            elif nextDirection == Direction.WEST:
+                return Move.LEFT
+        elif direction == Direction.SOUTH:
+            if nextDirection == Direction.EAST:
+                return Move.LEFT
+            elif nextDirection == Direction.WEST:
+                return Move.RIGHT
+            elif nextDirection == Direction.NORTH:
+                return Move.LEFT
+        elif direction == Direction.WEST:
+            if nextDirection == Direction.SOUTH:
+                return Move.LEFT
+            elif nextDirection == Direction.NORTH:
+                return Move.RIGHT
+            elif nextDirection == Direction.EAST:
+                return Move.LEFT
         return Move.STRAIGHT
 
     def on_die(self):
@@ -80,6 +109,9 @@ class Cell(object):
         self.h = 0
         self.f = 0
 
+    def __lt__(self, other):
+        return self.f < other.f
+
 
 class AStar(object):
     def __init__(self, board: Board):
@@ -90,7 +122,9 @@ class AStar(object):
         self.grid_height = 25
         self.grid_width = 25
         self.board = board
+        self.ends = []
         self.end = None
+        self.distance = math.inf
 
     def init_grid(self):
         self.start = None
@@ -105,7 +139,15 @@ class AStar(object):
                 if self.board[x][y] == GameObject.SNAKE_HEAD:
                     self.start = self.get_cell(x, y)
                 if self.board[x][y] == GameObject.FOOD:
-                    self.end == self.get_cell(x, y)
+                    self.ends.append(self.get_cell(x, y))
+
+    def find_nearest(self):
+        for cell in self.ends:
+            new_distance = abs(cell.x - self.start.x) + abs(cell.y - self.start.y)
+            if new_distance < self.distance:
+                self.end = cell
+                self.distance = new_distance
+
 
     def get_heuristic(self, cell):
         return 10 * (abs(cell.x - self.end.x) + abs(cell.y - self.end.y))
@@ -129,7 +171,14 @@ class AStar(object):
         cell = self.end
         while cell.parent is not self.start:
             cell = cell.parent
-            print('path: cell: ' + cell.x, ',' + cell.y)
+        if cell.x > self.start.x:
+            return Direction.EAST
+        if cell.x < self.start.x:
+            return Direction.WEST
+        if cell.y > self.start.y:
+            return Direction.SOUTH
+        if cell.y < self.start.y:
+            return Direction.NORTH
 
     def update_cell(self, adj, cell):
         adj.g = cell.g + 10
@@ -138,16 +187,17 @@ class AStar(object):
         adj.f = adj.h + adj.g
 
     def process(self):
+        self.find_nearest()
         # add starting cell to open heap queue
-        heapq.heappush(self.opened, (self.start.f, self.start))
+        heapq.heappush(self.opened, self.start)
         while len(self.opened):
             # pop cell from heap queue
-            f, cell = heapq.heappop(self.opened)
+            cell = heapq.heappop(self.opened)
             # add cell to closed list so we don't process it twice
             self.closed.add(cell)
             # if ending cell, display found path
             if cell is self.end:
-                self.display_path()
+                return self.display_path()
                 break
             # get adjacent cells for cell
             adj_cells = self.get_adjacent_cells(cell)
@@ -162,4 +212,4 @@ class AStar(object):
                     else:
                         self.update_cell(adj_cell, cell)
                         # add adj cell to open list
-                        heapq.heappush(self.opened, (adj_cell.f, adj_cell))
+                        heapq.heappush(self.opened, adj_cell)
