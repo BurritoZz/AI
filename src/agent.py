@@ -96,7 +96,7 @@ class Agent:
         it will be called for a fresh snake. Use this function to clean up
         variables specific to the life of a single snake or to host a funeral.
         """
-        pass
+        print("He died!")
 
 
 class Cell(object):
@@ -148,7 +148,6 @@ class AStar(object):
                 self.end = cell
                 self.distance = new_distance
 
-
     def get_heuristic(self, cell):
         return 10 * (abs(cell.x - self.end.x) + abs(cell.y - self.end.y))
 
@@ -187,10 +186,11 @@ class AStar(object):
         adj.f = adj.h + adj.g
 
     def process(self):
+        self.opened = []
         self.find_nearest()
         # add starting cell to open heap queue
         heapq.heappush(self.opened, self.start)
-        while len(self.opened):
+        while len(self.opened) > 0:
             # pop cell from heap queue
             cell = heapq.heappop(self.opened)
             # add cell to closed list so we don't process it twice
@@ -203,7 +203,7 @@ class AStar(object):
             adj_cells = self.get_adjacent_cells(cell)
             for adj_cell in adj_cells:
                 if adj_cell.reachable and adj_cell not in self.closed:
-                    if (adj_cell.f, adj_cell) in self.opened:
+                    if adj_cell in self.opened:
                         # if adj cell in open list, check if current path is
                         # better than the one previously found for this adj
                         # cell
@@ -213,3 +213,20 @@ class AStar(object):
                         self.update_cell(adj_cell, cell)
                         # add adj cell to open list
                         heapq.heappush(self.opened, adj_cell)
+        cell = self.start
+        if cell.x < self.grid_width - 1 \
+                and (self.board[cell.x + 1][cell.y] == GameObject.EMPTY or
+                     self.board[cell.x + 1][cell.y] == GameObject.FOOD):
+            return Direction.EAST
+        if cell.x > 0 \
+                and (self.board[cell.x - 1][cell.y] == GameObject.EMPTY or
+                     self.board[cell.x - 1][cell.y] == GameObject.FOOD):
+            return Direction.WEST
+        if cell.y < self.grid_height - 1 \
+                and (self.board[cell.x][cell.y + 1] == GameObject.EMPTY or
+                     self.board[cell.x][cell.y + 1] == GameObject.FOOD):
+            return Direction.SOUTH
+        if cell.y > 0 \
+                and (self.board[cell.x][cell.y - 1] == GameObject.EMPTY or
+                     self.board[cell.x][cell.y - 1] == GameObject.FOOD):
+            return Direction.NORTH
