@@ -212,6 +212,7 @@ class AStar(object):
                     else:
                         self.update_cell(adj_cell, cell)
                         # add adj cell to open list
+
                         heapq.heappush(self.opened, adj_cell)
         cell = self.start
         if cell.x < self.grid_width - 1 \
