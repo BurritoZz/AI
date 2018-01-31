@@ -1,5 +1,6 @@
 from gameobjects import GameObject
 from move import Move, Direction
+from board import Board
 
 
 class Agent:
@@ -47,8 +48,12 @@ class Agent:
         snake. This means the snake keeps track of the direction it is facing (North, South, West and East).
         Move.LEFT and Move.RIGHT changes the direction of the snake. In example, if the snake is facing north and the
         move left is made, the snake will go one block to the left and change its direction to west.
+
+        Function: give the food a reward of 1 and let the move cost -.04.
         """
-        return Move.STRAIGHT
+        rl = RL(board, direction, head_position)
+
+        return rl.rewards()
 
     def should_redraw_board(self):
         """
@@ -86,3 +91,121 @@ class Agent:
         represents the tail and the first element represents the body part directly following the head of the snake.
         When the snake runs in its own body the following holds: head_position in body_parts.
         """
+        
+class RL(object):
+    def __init__(self, board, direction, head_position):
+        self.board = board
+        self.direction = direction
+        self.head_position = head_position
+        self.tuple = dict()
+        self.oldtuple = dict()
+        self.init_rewards()
+        self.rewards()
+
+    def init_rewards(self):
+        for y in range(len(self.board)):
+            for x in range(len(self.board[y])):
+                z = 1 if self.board[y][x] is GameObject.FOOD else 0
+                self.tuple[(x, y)] = z
+
+        self.oldtuple = self.tuple
+
+        print(self.tuple)
+
+#LOOPT FOUT OP MUUR EN DIE 0.8*
+    def rewards(self):
+        for j in range(len(self.board)):
+            for i in range(len(self.board[j])):
+                if self.board[i][j] == GameObject.FOOD:
+                    self.tuple[(i, j)] = 1
+                elif self.board[i][j] == GameObject.WALL:
+                    self.tuple[(i, j)] = None
+                else:
+                    right_x, right_y = self.direction.get_new_direction(Move.RIGHT).get_xy_manipulation()
+                    straight_x, straight_y = self.direction.get_new_direction(Move.STRAIGHT).get_xy_manipulation()
+                    left_x, left_y = self.direction.get_new_direction(Move.LEFT).get_xy_manipulation()
+
+                    manright_x = right_x + i
+                    manright_y = right_y + j
+                    if(manright_y < 0 or manright_y > len(self.board) or manright_x < 0 or manright_x > (len(self.board[j]) - 1)):
+                        self.oldtuple[(manright_x, manright_y)] = 0
+                    manstraight_x = straight_x + i
+                    manstraight_y = straight_y + j
+                    if (manstraight_y < 0 or manstraight_y > len(self.board) or manstraight_x < 0 or manstraight_x > (len(self.board[j]) - 1)):
+                        self.oldtuple[(manstraight_x, manstraight_y)] = 0
+                    manleft_x = left_x + i
+                    manleft_y = left_y + j
+                    if (manleft_y < 0 or manleft_y > len(self.board) or manleft_x < 0 or manleft_x > (len(self.board[j]) - 1)):
+                        self.oldtuple[(manleft_x, manleft_y)] = 0
+
+                    if (self.oldtuple[(manright_x, manright_y)] > self.oldtuple[(manstraight_x, manstraight_y)] and self.oldtuple[(manright_x, manright_y)] > self.oldtuple[(manleft_x,manleft_y)]):
+                        self.tuple[(i, j)] = -0.04 + 0.8 * self.oldtuple[(manright_x, manright_y)] + 0.1 * self.oldtuple[(manstraight_x, manstraight_y)] + 0.1 * self.oldtuple[(manleft_x, manleft_y)]
+                        print(self.tuple[(i, j)])
+                        print((i,j))
+                        print(self.oldtuple[(manright_x, manright_y)])
+                        print(self.oldtuple[(manstraight_x, manstraight_y)])
+                        print(self.oldtuple[(manleft_x, manleft_y)])
+
+                    elif (self.oldtuple[(manright_x, manright_y)] < self.oldtuple[(manstraight_x, manstraight_y)] and self.oldtuple[(manstraight_x, manstraight_y)] > self.oldtuple[(manleft_x,manleft_y)]):
+                        self.tuple[(i, j)] = -0.04 + 0.8 * self.oldtuple[(manstraight_x, manstraight_y)] + 0.1 * self.oldtuple[(manright_x, manright_y)] + 0.1 * self.oldtuple[(manleft_x, manleft_y)]
+
+                    elif (self.oldtuple[(manleft_x, manleft_y)] > self.oldtuple[(manstraight_x, manstraight_y)] and self.oldtuple[(manright_x, manright_y)] < self.oldtuple[(manleft_x,manleft_y)]):
+                        self.tuple[(i, j)] = -0.04 + 0.8 * self.oldtuple[(manleft_x, manleft_y)] + 0.1 * self.oldtuple[(manright_x, manright_y)] + 0.1 * self.oldtuple[(manstraight_x, manstraight_y)]
+
+                    else:
+                        self.tuple[(i, j)] = -0.04 + self.oldtuple[(i, j)]
+        print(self.tuple)
+
+
+    def returnTuple(self):
+        return self.tuple
+
+    def rightway(self):
+        chance = random.randint(0, 10)
+
+        right_x, right_y = self.direction.get_new_direction(Move.RIGHT).get_xy_manipulation()
+        straight_x, straight_y = self.direction.get_new_direction(Move.STRAIGHT).get_xy_manipulation()
+        left_x, left_y = self.direction.get_new_direction(Move.LEFT).get_xy_manipulation()
+
+        manright_x = right_x + head_position[0]
+        manright_y = right_y + head_position[1]
+        if (manright_y < 0 or manright_y > len(self.board) or manright_x < 0 or manright_x > (len(self.board[j]) - 1)):
+            self.tuple[(manright_x, manright_y)] = 0
+        manstraight_x = straight_x + head_position[0]
+        manstraight_y = straight_y + head_position[1]
+        if (manstraight_y < 0 or manstraight_y > len(self.board) or manstraight_x < 0 or manstraight_x > (
+                len(self.board[j]) - 1)):
+            self.tuple[(manstraight_x, manstraight_y)] = 0
+        manleft_x = left_x + head_position[0]
+        manleft_y = left_y + head_position[1]
+        if (manleft_y < 0 or manleft_y > len(self.board) or manleft_x < 0 or manleft_x > (len(self.board[j]) - 1)):
+            self.tuple[(manleft_x, manleft_y)] = 0
+
+
+        if (self.tuple[(manright_x, manright_y)] >= self.tuple[(manstraight_x, manstraight_y)] and self.tuple[
+            (manright_x, manright_y)] >= self.tuple[(manleft_x, manleft_y)]):
+            if (chance != 9 and chance != 10):
+                return Move.RIGHT
+            elif (chance == 9):
+                return Move.STRAIGHT
+            elif (chance == 10):
+                return Move.LEFT
+
+
+        elif (self.tuple[(manright_x, manright_y)] <= self.tuple[(manstraight_x, manstraight_y)] and self.tuple[
+            (manstraight_x, manstraight_y)] >= self.tuple[(manleft_x, manleft_y)]):
+            if (chance != 9 and chance != 10):
+                return Move.STRAIGHT
+            elif (chance == 9):
+                return Move.LEFT
+            elif (chance == 10):
+                return Move.RIGHT
+
+        elif (self.tuple[(manleft_x, manleft_y)] >= self.tuple[(manstraight_x, manstraight_y)] and self.tuple[
+            (manright_x, manright_y)] <= self.tuple[(manleft_x, manleft_y)]):
+            if (chance != 9 and chance != 10):
+                return Move.LEFT
+            elif (chance == 9):
+                return Move.STRAIGHT
+            elif (chance == 10):
+                return Move.RIGHT

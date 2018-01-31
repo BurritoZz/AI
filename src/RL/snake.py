@@ -60,6 +60,7 @@ class Snake:
             if should_grow:
                 self.size += 1
             self.score += 1
+            return True, redraw_board
             board.eat_food(self.x, self.y)
             if self.max_tics_to_starve != -1:
                 self.tics_to_starve = self.max_tics_to_starve + 1
