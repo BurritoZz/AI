@@ -361,6 +361,7 @@ class AStar(object):
                     else:
                         self.update_cell(adj_cell, cell)
                         # add adj cell to open list
+
                         heapq.heappush(self.opened, adj_cell)
         if len(self.ends) > 0:
             for cell in self.cells:
