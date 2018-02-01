@@ -4,100 +4,36 @@ from move import Direction
 import heapq
 import math
 from board import Board
-
+import time
 
 class Agent:
-    def get_move(self, board: Board, score, turns_alive,
-                 turns_to_starve, direction):
-        """This function behaves as the 'brain' of the snake. You only need to
-        change the code in this function for the project. Every turn the agent
-        needs to return a move. This move will be executed by the snake. If
-        this functions fails to return a valid return (see return), the snake
-        will die (as this confuses its tiny brain that much that it will
-        explode). The starting direction of the snake will be North.
+    def __init__(self, board_width, board_height):
+        self.board_width = board_width
+        self.board_height = board_height
+        self.times = []
 
-        :param board: A two dimensional array representing the current state of
-        the board. The upper left most coordinate is equal to (0,0) and each
-        coordinate (x,y) can be accessed by executing board[x][y]. At each
-        coordinate a GameObject is present. This can be either GameObject.EMPTY
-        (meaning there is nothing at the given coordinate), GameObject.FOOD
-        (meaning there is food at the given coordinate), GameObject.WALL
-        (meaning there is a wall at the given coordinate. TIP: do not run into
-        them), GameObject.SNAKE_HEAD (meaning the head of the snake is located
-        there) and GameObject.SNAKE_BODY (meaning there is a body part of the
-        snake there. TIP: also, do not run into these). The snake will also die
-        when it tries to escape the board (moving out of the boundaries of the
-        array)
+    def update_time(self, t):
+        self.times.append(t)
+        if len(self.times) == 30:
+            print("measuring done")
+            total = 0
+            for t in self.times:
+                total += t
+            print("mean is: " + str(total / 30))
 
-        :param score: The current score as an integer. Whenever the snake eats,
-        the score will be increased by one. When the snake tragically dies
-        (i.e. by running its head into a wall) the score will be reset. In
-        ohter words, the score describes the score of the current (alive) worm.
-
-        :param turns_alive: The number of turns (as integer) the current snake
-        is alive.
-
-        :param turns_to_starve: The number of turns left alive (as integer) if
-        the snake does not eat. If this number reaches 1 and there is not eaten
-        the next turn, the snake dies. If the value is equal to -1, then the
-        option is not enabled and the snake can not starve.
-
-        :param direction: The direction the snake is currently facing. This can
-        be either Direction.NORTH, Direction.SOUTH, Direction.WEST,
-        Direction.EAST. For instance, when the snake is facing east and a move
-        straight is returned, the snake wil move one cell to the right.
-
-        :return: The move of the snake. This can be either Move.LEFT (meaning
-        going left), Move.STRAIGHT (meaning going straight ahead) and
-        Move.RIGHT (meaning going right). The moves are made from the viewpoint
-        of the snake. This means the snake keeps track of the direction it is
-        facing (North, South, West and East). Move.LEFT and Move.RIGHT changes
-        the direction of the snake. In example, if the snake is facing north
-        and the move left is made, the snake will go one block to the left and
-        change its direction to west.
-        """
-        aStar = AStar(board)
+    def get_move(self, board: Board, score, turns_alive, turns_to_starve, direction):
+        aStar = AStar(board, direction, self.board_width, self.board_height)
         aStar.init_grid()
-        nextDirection = aStar.process()
-        if direction == Direction.NORTH:
-            if nextDirection == Direction.WEST:
-                return Move.LEFT
-            elif nextDirection == Direction.EAST:
-                return Move.RIGHT
-            elif nextDirection == Direction.SOUTH:
-                return Move.LEFT
-        elif direction == Direction.EAST:
-            if nextDirection == Direction.NORTH:
-                return Move.LEFT
-            elif nextDirection == Direction.SOUTH:
-                return Move.RIGHT
-            elif nextDirection == Direction.WEST:
-                return Move.LEFT
-        elif direction == Direction.SOUTH:
-            if nextDirection == Direction.EAST:
-                return Move.LEFT
-            elif nextDirection == Direction.WEST:
-                return Move.RIGHT
-            elif nextDirection == Direction.NORTH:
-                return Move.LEFT
-        elif direction == Direction.WEST:
-            if nextDirection == Direction.SOUTH:
-                return Move.LEFT
-            elif nextDirection == Direction.NORTH:
-                return Move.RIGHT
-            elif nextDirection == Direction.EAST:
-                return Move.LEFT
-        return Move.STRAIGHT
+        start = time.time()
+        result = aStar.process()
+        end = time.time()
+        t = end - start
+        print(t)
+        self.update_time(t)
+        return result
 
     def on_die(self):
-        """This function will be called whenever the snake dies. After its dead
-        the snake will be reincarnated into a new snake and its life will start
-        over. This means that the next time the get_move function is called,
-        it will be called for a fresh snake. Use this function to clean up
-        variables specific to the life of a single snake or to host a funeral.
-        """
-        print("He died!")
-
+        pass
 
 class Cell(object):
     def __init__(self, x, y, reachable):
@@ -112,26 +48,29 @@ class Cell(object):
     def __lt__(self, other):
         return self.f < other.f
 
+    def __str__(self):
+        return "x: " + str(self.x) + " y: " + str(self.y)
 
 class AStar(object):
-    def __init__(self, board: Board):
+    def __init__(self, board: Board, currDir: Direction, board_width, board_height):
         self.opened = []
         heapq.heapify(self.opened)
         self.closed = set()
         self.cells = []
-        self.grid_height = 25
-        self.grid_width = 25
+        self.grid_height = board_width
+        self.grid_width = board_height
         self.board = board
+        self.currDir = currDir
         self.ends = []
         self.end = None
         self.distance = math.inf
+        self.start = None
 
     def init_grid(self):
-        self.start = None
         for x in range(self.grid_width):
             for y in range(self.grid_height):
                 if self.board[x][y] == GameObject.WALL \
-                        or self.board[x][y] == GameObject.SNAKE_BODY:
+                   or self.board[x][y] == GameObject.SNAKE_BODY:
                     reachable = False
                 else:
                     reachable = True
@@ -147,37 +86,247 @@ class AStar(object):
             if new_distance < self.distance:
                 self.end = cell
                 self.distance = new_distance
+        self.ends.remove(cell)
 
     def get_heuristic(self, cell):
         return 10 * (abs(cell.x - self.end.x) + abs(cell.y - self.end.y))
 
     def get_cell(self, x, y):
-        return self.cells[x * self.grid_height + y]
+        if -1 < x < self.grid_width and -1 < y < self.grid_height:
+            return self.cells[x * self.grid_height + y]
+        else:
+            return None
+
+    def coor_to_dir(self, cell, target):
+        if cell.y - target.y > 0:
+            ##print("cell x:" + str(cell.x) + " cell y: " + str(cell.y))
+            ##print("target x:" + str(target.x) + "target y:" + str(target.y))
+            return Direction.NORTH
+        elif cell.x - target.x < 0:
+            ##print("cell x:" + str(cell.x) + " cell y: " + str(cell.y))
+            ##print("target x:" + str(target.x) + "target y:" + str(target.y))
+            return Direction.EAST
+        elif cell.y - target.y < 0:
+            ##print("cell x:" + str(cell.x) + " cell y: " + str(cell.y))
+            ##print("target x:" + str(target.x) + "target y:" + str(target.y))
+            return Direction.SOUTH
+        else:
+            ##print("cell x:" + str(cell.x) + " cell y: " + str(cell.y))
+            ##print("target x:" + str(target.x) + "target y:" + str(target.y))
+            return Direction.WEST
+
+    def dir_to_move(self, targetDir):
+        if self.currDir == Direction.WEST:
+            if targetDir == Direction.NORTH:
+                return Move.RIGHT
+            elif targetDir == Direction.SOUTH:
+                return Move.LEFT
+            elif targetDir == Direction.EAST:
+                #print("going back!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                return Move.LEFT
+        elif self.currDir == Direction.NORTH:
+            if targetDir == Direction.WEST:
+                return Move.LEFT
+            elif targetDir == Direction.EAST:
+                return Move.RIGHT
+            elif targetDir == Direction.SOUTH:
+                #print("going back!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                return Move.LEFT
+        elif self.currDir == Direction.EAST:
+            if targetDir == Direction.NORTH:
+                return Move.LEFT
+            elif targetDir == Direction.SOUTH:
+                return Move.RIGHT
+            elif targetDir == Direction.WEST:
+                #print("going back!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                return Move.LEFT
+        else:
+            if targetDir == Direction.WEST:
+                return Move.RIGHT
+            elif targetDir == Direction.EAST:
+                return Move.LEFT
+            elif targetDir == Direction.NORTH:
+                #print("going back!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                return Move.LEFT
+        return Move.STRAIGHT
 
     def get_adjacent_cells(self, cell):
         cells = []
-        if cell.x < self.grid_width-1:
-            cells.append(self.get_cell(cell.x+1, cell.y))
+        if cell.x < self.grid_width - 1:
+            cells.append(self.get_cell(cell.x + 1, cell.y))
         if cell.y > 0:
-            cells.append(self.get_cell(cell.x, cell.y-1))
+            cells.append(self.get_cell(cell.x, cell.y - 1))
         if cell.x > 0:
-            cells.append(self.get_cell(cell.x-1, cell.y))
-        if cell.y < self.grid_height-1:
-            cells.append(self.get_cell(cell.x, cell.y+1))
+            cells.append(self.get_cell(cell.x - 1, cell.y))
+        if cell.y < self.grid_height - 1:
+            cells.append(self.get_cell(cell.x, cell.y + 1))
         return cells
 
-    def display_path(self):
+    def get_open_neighbors(self, cell):
+        x = cell.x
+        y = cell.y
+        N = y - 1
+        S = y + 1
+        E = x + 1
+        W = x - 1
+        openN = self.walkable(x, N)
+        openS = self.walkable(x, S)
+        openE = self.walkable(E, y)
+        openW = self.walkable(W, y)
+        result = []
+        if openN:
+            result.append(self.get_cell(x, N))
+        if openS:
+            result.append(self.get_cell(x, S))
+        if openE:
+            result.append(self.get_cell(E, y))
+        if openW:
+            result.append(self.get_cell(W, y))
+        return result
+
+    def get_all_neighbors(self, cell):
+        x = cell.x
+        y = cell.y
+        N = y - 1
+        S = y + 1
+        E = x + 1
+        W = x - 1
+        openN = self.walkable(x, N)
+        openS = self.walkable(x, S)
+        openE = self.walkable(E, y)
+        openW = self.walkable(W, y)
+        if openN:
+            NCell = self.get_cell(x, N)
+        else:
+            NCell = None
+        if openS:
+            SCell = self.get_cell(x, S)
+        else:
+            SCell = None
+        if openE:
+            ECell = self.get_cell(E, y)
+        else:
+            ECell = None
+        if openW:
+            WCell = self.get_cell(W, y)
+        else:
+            WCell = None
+        result = []
+        result.append({'cell': NCell, 'open': openN, 'z': self.get_consecutive(NCell, Direction.NORTH)})
+        result.append({'cell': ECell, 'open': openE, 'z': self.get_consecutive(ECell, Direction.EAST)})
+        result.append({'cell': SCell, 'open': openS, 'z': self.get_consecutive(SCell, Direction.SOUTH)})
+        result.append({'cell': WCell, 'open': openW, 'z': self.get_consecutive(WCell, Direction.WEST)})
+        return result
+
+    def get_consecutive(self, cell, direction: Direction):
+        counter = 0
+        currCell = cell
+        if currCell is None:
+            return 0
+        if direction == Direction.NORTH:
+            while currCell is not None and currCell.reachable:
+                counter += 1
+                currCell = self.get_cell(currCell.x, currCell.y - 1)
+        elif direction == Direction.SOUTH:
+            while currCell is not None and currCell.reachable:
+                counter += 1
+                currCell = self.get_cell(currCell.x, currCell.y + 1)
+        elif direction == Direction.EAST:
+            while currCell is not None and currCell.reachable:
+                counter += 1
+                currCell = self.get_cell(currCell.x + 1, currCell.y)
+        elif direction == Direction.WEST:
+            while currCell is not None and currCell.reachable:
+                counter += 1
+                currCell = self.get_cell(currCell.x - 1, currCell.y)
+        return counter
+
+    def walkable(self, x, y):
+        cell = self.get_cell(x, y)
+        if cell is not None:
+            return cell.reachable
+        else:
+            return False
+
+    def check_chute(self, cell, direction: Direction):
+        currCell = cell
+        if direction == Direction.NORTH:
+            while self.grid_height > currCell.y > -1 and self.grid_width > currCell.x > -1\
+                  and not self.walkable(currCell.x - 1, currCell.y) and not self.walkable(currCell.x + 1, currCell.y):
+                if not self.walkable(currCell.x, currCell.y - 1):
+                    return True
+                else:
+                    currCell = self.get_cell(currCell.x, currCell.y - 1)
+        elif direction == Direction.SOUTH:
+            while self.grid_height > currCell.y > -1 and self.grid_width > currCell.x > -1\
+                  and not self.walkable(currCell.x - 1, currCell.y) and not self.walkable(currCell.x + 1, currCell.y):
+                if not self.walkable(currCell.x, currCell.y + 1):
+                    return True
+                else:
+                    currCell = self.get_cell(currCell.x, currCell.y + 1)
+        elif direction == Direction.EAST:
+            while self.grid_height > currCell.y > -1 and self.grid_width > currCell.x > -1\
+                  and not self.walkable(currCell.x, currCell.y - 1) and not self.walkable(currCell.x, currCell.y + 1):
+                if not self.walkable(currCell.x + 1, currCell.y):
+                    return True
+                else:
+                    currCell = self.get_cell(currCell.x + 1, currCell.y)
+        elif direction == Direction.WEST:
+            while self.grid_height > currCell.y > -1 and self.grid_width > currCell.x > -1\
+                  and not self.walkable(currCell.x, currCell.y - 1) and not self.walkable(currCell.x, currCell.y + 1):
+                if not self.walkable(currCell.x - 1, currCell.y):
+                    return True
+                else:
+                    currCell = self.get_cell(currCell.x - 1, currCell.y)
+        return False
+
+    def move_safe(self):
+        #print("safe move")
+        ns = self.get_all_neighbors(self.start)
+        if not ns[0].get('open') and not ns[2].get('open') and ns[1].get('open') and ns[3].get('open'):
+            if ns[3].get('z') > ns[1].get('z') and not self.check_chute(ns[3].get('cell'), Direction.WEST):
+                return self.dir_to_move(Direction.WEST)
+            else:
+                return self.dir_to_move(Direction.EAST)
+        elif ns[0].get('open') and ns[2].get('open') and not ns[1].get('open') and not ns[3].get('open'):
+            if ns[2].get('z') > ns[0].get('z') and not self.check_chute(ns[2].get('cell'), Direction.SOUTH):
+                return self.dir_to_move(Direction.SOUTH)
+            else:
+                return self.dir_to_move(Direction.NORTH)
+        else:
+            #print(ns)
+            sortedList = sorted(ns, key=lambda k: k['z'], reverse=True)
+            #print(sortedList)
+            if sortedList[0].get('open') and not self.check_chute(sortedList[0].get('cell'), self.coor_to_dir(self.start, sortedList[0].get('cell'))):
+                return self.dir_to_move(self.coor_to_dir(self.start, sortedList[0].get('cell')))
+            elif sortedList[1].get('open') and not self.check_chute(sortedList[1].get('cell'), self.coor_to_dir(self.start, sortedList[1].get('cell'))):
+                return self.dir_to_move(self.coor_to_dir(self.start, sortedList[1].get('cell')))
+            elif sortedList[2].get('open') and not self.check_chute(sortedList[2].get('cell'), self.coor_to_dir(self.start, sortedList[2].get('cell'))):
+                return self.dir_to_move(self.coor_to_dir(self.start, sortedList[2].get('cell')))
+            elif sortedList[3].get('open') and not self.check_chute(sortedList[3].get('cell'), self.coor_to_dir(self.start, sortedList[3].get('cell'))):
+                return self.dir_to_move(self.coor_to_dir(self.start, sortedList[3].get('cell')))
+            #if ns[0].get('open') and not self.check_chute(ns[0].get('cell'), Direction.NORTH):
+            #    return self.dir_to_move(Direction.NORTH)
+            #elif ns[1].get('open') and not self.check_chute(ns[1].get('cell'), Direction.EAST):
+            #    return self.dir_to_move(Direction.EAST)
+            #elif ns[2].get('open') and not self.check_chute(ns[2].get('cell'), Direction.SOUTH):
+            #    return self.dir_to_move(Direction.SOUTH)
+            #elif ns[3].get('open') and not self.check_chute(ns[3].get('cell'), Direction.WEST):
+            #    return self.dir_to_move(Direction.WEST)
+            else:
+                ns = self.get_open_neighbors(self.start)
+                if len(ns) > 0:
+                    return self.dir_to_move(self.coor_to_dir(self.start, ns[0]))
+
+    def next_move(self):
+        #print("path")
         cell = self.end
         while cell.parent is not self.start:
+            #print(cell)
             cell = cell.parent
-        if cell.x > self.start.x:
-            return Direction.EAST
-        if cell.x < self.start.x:
-            return Direction.WEST
-        if cell.y > self.start.y:
-            return Direction.SOUTH
-        if cell.y < self.start.y:
-            return Direction.NORTH
+        #print(cell)
+        #print(cell.parent)
+        return self.dir_to_move(self.coor_to_dir(self.start, cell))
 
     def update_cell(self, adj, cell):
         adj.g = cell.g + 10
@@ -195,14 +344,14 @@ class AStar(object):
             cell = heapq.heappop(self.opened)
             # add cell to closed list so we don't process it twice
             self.closed.add(cell)
-            # if ending cell, display found path
+            # if ending cell, return next move
             if cell is self.end:
-                return self.display_path()
-                break
+                return self.next_move()
             # get adjacent cells for cell
-            adj_cells = self.get_adjacent_cells(cell)
+            adj_cells = self.get_open_neighbors(cell)
+            #adj_cells = self.get_adjacent_cells(cell)
             for adj_cell in adj_cells:
-                if adj_cell.reachable and adj_cell not in self.closed:
+                if adj_cell not in self.closed:
                     if adj_cell in self.opened:
                         # if adj cell in open list, check if current path is
                         # better than the one previously found for this adj
@@ -213,20 +362,13 @@ class AStar(object):
                         self.update_cell(adj_cell, cell)
                         # add adj cell to open list
                         heapq.heappush(self.opened, adj_cell)
-        cell = self.start
-        if cell.x < self.grid_width - 1 \
-                and (self.board[cell.x + 1][cell.y] == GameObject.EMPTY or
-                     self.board[cell.x + 1][cell.y] == GameObject.FOOD):
-            return Direction.EAST
-        if cell.x > 0 \
-                and (self.board[cell.x - 1][cell.y] == GameObject.EMPTY or
-                     self.board[cell.x - 1][cell.y] == GameObject.FOOD):
-            return Direction.WEST
-        if cell.y < self.grid_height - 1 \
-                and (self.board[cell.x][cell.y + 1] == GameObject.EMPTY or
-                     self.board[cell.x][cell.y + 1] == GameObject.FOOD):
-            return Direction.SOUTH
-        if cell.y > 0 \
-                and (self.board[cell.x][cell.y - 1] == GameObject.EMPTY or
-                     self.board[cell.x][cell.y - 1] == GameObject.FOOD):
-            return Direction.NORTH
+        if len(self.ends) > 0:
+            for cell in self.cells:
+                cell.g = 0
+                cell.h = 0
+                cell.f = 0
+                cell.parent = None
+            return self.process()
+        else:
+            ##print("could not find path to food")
+            return self.move_safe()

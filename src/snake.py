@@ -18,7 +18,7 @@ class Snake:
         self.tics_alive = 0
         self.tics_to_starve = max_tics_to_starve
         self.max_tics_to_starve = max_tics_to_starve
-        self.agent = Agent()
+        self.agent = Agent(board_width, board_height)
 
     def update(self, board):
         if len(self.body_parts) > 0 and self.body_parts[0] != (self.x, self.y):
