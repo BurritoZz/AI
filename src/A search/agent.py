@@ -150,18 +150,6 @@ class AStar(object):
                 return Move.LEFT
         return Move.STRAIGHT
 
-    def get_adjacent_cells(self, cell):
-        cells = []
-        if cell.x < self.grid_width - 1:
-            cells.append(self.get_cell(cell.x + 1, cell.y))
-        if cell.y > 0:
-            cells.append(self.get_cell(cell.x, cell.y - 1))
-        if cell.x > 0:
-            cells.append(self.get_cell(cell.x - 1, cell.y))
-        if cell.y < self.grid_height - 1:
-            cells.append(self.get_cell(cell.x, cell.y + 1))
-        return cells
-
     def get_open_neighbors(self, cell):
         x = cell.x
         y = cell.y
@@ -349,7 +337,6 @@ class AStar(object):
                 return self.next_move()
             # get adjacent cells for cell
             adj_cells = self.get_open_neighbors(cell)
-            #adj_cells = self.get_adjacent_cells(cell)
             for adj_cell in adj_cells:
                 if adj_cell not in self.closed:
                     if adj_cell in self.opened:
