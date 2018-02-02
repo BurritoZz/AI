@@ -12,8 +12,8 @@ tics_per_second = 4
 
 """ BEGIN GAME SETTINGS """
 # Board width and height
-board_width = 75
-board_height = 75
+board_width = 25
+board_height = 25
 # Maximum number of food blocks on the board
 food_blocks_max = 3
 # Maximum number of wall blocks on the board
