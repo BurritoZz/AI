@@ -53,12 +53,6 @@ class Agent:
         """
        # print(head_position[0])
         rl = RL(board, direction, head_position)
-        rl.rewards()
-        rl.rewards()
-        rl.rewards()
-        rl.rewards()
-        rl.rewards()
-        rl.rewards()
         return rl.rightway()
 
     def should_redraw_board(self):
@@ -118,8 +112,8 @@ class RL(object):
         self.head_position = head_position
         self.cells = []
         self.init_rewards()
-        self.ends = []
-        self.end = None
+        for i in range(10):
+            self.rewards()
 
     def init_rewards(self):
         for x in range(5):
@@ -130,9 +124,6 @@ class RL(object):
                     self.cells.append(Cell(x, y, True, 1))
                 else:
                     self.cells.append(Cell(x, y, True, 0))
-       # print("NEW REWARD ROUND:")
-       # for i in range(len(self.cells)):
-           # print("cell: (", self.cells[i].x, ",", self.cells[i].y, ") heeft reward: ", self.cells[i].reward)
 
     def rewards(self):
         self.newcells = []
@@ -168,7 +159,6 @@ class RL(object):
                     else:
                         for j in range(len(otherreward)):
                             reward = reward + (0.2 / length) * otherreward[j]
-                            #print(reward)
                         reward = -0.04 + 0.8 * highestreward + reward
 
                     self.newcells.append(Cell(x, y, True, reward))
@@ -178,12 +168,7 @@ class RL(object):
                     same = 0
                     highestreward = 0
 
-
         self.cells = self.newcells
-
-       # print("NEW REWARD ROUND :")
-        #for i in range (len(self.cells)):
-         #   print("cell: (", self.cells[i].x, ",", self.cells[i].y, ") heeft reward: ", self.cells[i].reward)
 
 
     def get_adjacent_cells(self, cell):
@@ -248,20 +233,16 @@ class RL(object):
 
         for i in range(0, 3):
             if allcells[i] is not None:
-                ##print(allcells[i].x, allcells[i].y, allcells[i].reward, heighestreward, i)
                 if allcells[i].reward is not None:
                     if allcells[i].reward > heighestreward:
                         heighestcell = i
                         heighestreward = allcells[i].reward
 
         if heighestcell == 0:
-            #print("heighestcell is 0")
             returns = Move.STRAIGHT
         elif heighestcell == 1:
-            #print("heighestcell is 1")
             returns = Move.LEFT
         else:
-            #print("heighestcell is:", heighestcell)
             returns = Move.RIGHT
 
         return returns
@@ -270,12 +251,7 @@ class RL(object):
         self.cells = []
         for y in range(5):
             self.cells.append(Cell(y, 0, True, 500))
-            #print("Cell (0,", y ,") met reward:" , self.cells[0 * 5 + y].reward)
             self.cells.append(Cell(y, 1, True, 400))
-           # print("Cell (1,", y, ") met reward:", self.cells[1 * 5 + y].reward)
             self.cells.append(Cell(y, 2, True, 300))
-           # print("Cell (2,", y, ") met reward:", self.cells[2 * 5 + y].reward)
             self.cells.append(Cell(y, 3, True, 200))
-            #print("Cell (3,", y, ") met reward:", self.cells[3 * 5 + y].reward)
             self.cells.append(Cell(y, 4, True, 100))
-            #print("Cell (4,", y, ") met reward:", self.cells[4 * 5 + y].reward)
