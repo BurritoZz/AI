@@ -375,1323 +375,714 @@ mean is: 0.004509735107421875
 # Obstacle complexity = amount of obstacles
 # Obstacle complexity = 0
 0.00019025802612304688
-Score achieved: 0. Turns it took: 0
 0.0007658004760742188
-Score achieved: 0. Turns it took: 0
 0.001592397689819336
-Score achieved: 0. Turns it took: 0
 0.0020630359649658203
-Score achieved: 0. Turns it took: 0
 0.0005173683166503906
-Score achieved: 0. Turns it took: 0
 0.003154277801513672
-Score achieved: 0. Turns it took: 0
 0.0008008480072021484
-Score achieved: 0. Turns it took: 0
 0.0003514289855957031
-Score achieved: 0. Turns it took: 0
 0.000274658203125
-Score achieved: 0. Turns it took: 0
 0.0020258426666259766
-Score achieved: 0. Turns it took: 0
 0.0026047229766845703
-Score achieved: 0. Turns it took: 0
 0.0018825531005859375
-Score achieved: 0. Turns it took: 0
 0.0009067058563232422
-Score achieved: 0. Turns it took: 0
 0.0023233890533447266
-Score achieved: 0. Turns it took: 0
 0.000186920166015625
-Score achieved: 0. Turns it took: 0
 0.006705284118652344
-Score achieved: 0. Turns it took: 0
 0.0008475780487060547
-Score achieved: 0. Turns it took: 0
 0.003115415573120117
-Score achieved: 0. Turns it took: 0
 0.0009052753448486328
-Score achieved: 0. Turns it took: 0
 0.0009224414825439453
-Score achieved: 0. Turns it took: 0
 0.0011074542999267578
-Score achieved: 0. Turns it took: 0
 0.0021126270294189453
-Score achieved: 0. Turns it took: 0
 0.00024175643920898438
-Score achieved: 0. Turns it took: 0
 0.0009210109710693359
-Score achieved: 0. Turns it took: 0
 0.0002720355987548828
-Score achieved: 0. Turns it took: 0
 0.00011110305786132812
-Score achieved: 0. Turns it took: 0
 0.0027463436126708984
-Score achieved: 0. Turns it took: 0
 0.0005285739898681641
-Score achieved: 0. Turns it took: 0
 0.0007376670837402344
-Score achieved: 0. Turns it took: 0
 0.0025949478149414062
 measuring done
 mean is: 0.001450324058532715
 
 # Obstacle complexity = 5
 0.0014150142669677734
-Score achieved: 0. Turns it took: 0
 0.0028905868530273438
-Score achieved: 0. Turns it took: 0
 0.0011250972747802734
-Score achieved: 0. Turns it took: 0
 0.0018868446350097656
-Score achieved: 0. Turns it took: 0
 0.004399776458740234
-Score achieved: 0. Turns it took: 0
 0.00079345703125
-Score achieved: 0. Turns it took: 0
 0.0005269050598144531
-Score achieved: 0. Turns it took: 0
 0.0009763240814208984
-Score achieved: 0. Turns it took: 0
 0.0001201629638671875
-Score achieved: 0. Turns it took: 0
 0.0008511543273925781
-Score achieved: 0. Turns it took: 0
 0.0003082752227783203
-Score achieved: 0. Turns it took: 0
 0.0008897781372070312
-Score achieved: 0. Turns it took: 0
 0.0011799335479736328
-Score achieved: 0. Turns it took: 0
 0.0020782947540283203
-Score achieved: 0. Turns it took: 0
 0.0007634162902832031
-Score achieved: 0. Turns it took: 0
 0.0008335113525390625
-Score achieved: 0. Turns it took: 0
 0.0011129379272460938
-Score achieved: 0. Turns it took: 0
 0.0004448890686035156
-Score achieved: 0. Turns it took: 0
 0.002463102340698242
-Score achieved: 0. Turns it took: 0
 0.0003783702850341797
-Score achieved: 0. Turns it took: 0
 0.0007090568542480469
-Score achieved: 0. Turns it took: 0
 0.0001285076141357422
-Score achieved: 0. Turns it took: 0
 0.0014476776123046875
-Score achieved: 0. Turns it took: 0
 0.00041413307189941406
-Score achieved: 0. Turns it took: 0
 0.0010614395141601562
-Score achieved: 0. Turns it took: 0
 0.0004017353057861328
-Score achieved: 0. Turns it took: 0
 0.0006923675537109375
-Score achieved: 0. Turns it took: 0
 0.003146648406982422
-Score achieved: 0. Turns it took: 0
 0.0005335807800292969
-Score achieved: 0. Turns it took: 0
 0.0004343986511230469
 measuring done
 mean is: 0.0011469125747680664
 
 # Obstacle complexity = 10
 0.004518747329711914
-Score achieved: 0. Turns it took: 0
 0.007517576217651367
-Score achieved: 0. Turns it took: 0
 0.0027785301208496094
-Score achieved: 0. Turns it took: 0
 0.0005838871002197266
-Score achieved: 0. Turns it took: 0
 0.0024318695068359375
-Score achieved: 0. Turns it took: 0
 0.004710674285888672
-Score achieved: 0. Turns it took: 0
 0.003229379653930664
-Score achieved: 0. Turns it took: 0
 0.0009760856628417969
-Score achieved: 0. Turns it took: 0
 0.002267599105834961
-Score achieved: 0. Turns it took: 0
 0.0001804828643798828
-Score achieved: 0. Turns it took: 0
 0.003518819808959961
-Score achieved: 0. Turns it took: 0
 0.0031919479370117188
-Score achieved: 0. Turns it took: 0
 0.0021703243255615234
-Score achieved: 0. Turns it took: 0
 0.002050161361694336
-Score achieved: 0. Turns it took: 0
 0.002830028533935547
-Score achieved: 0. Turns it took: 0
 8.535385131835938e-05
-Score achieved: 0. Turns it took: 0
 0.0010216236114501953
-Score achieved: 0. Turns it took: 0
 0.004761457443237305
-Score achieved: 0. Turns it took: 0
 0.0007393360137939453
-Score achieved: 0. Turns it took: 0
 0.0006034374237060547
-Score achieved: 0. Turns it took: 0
 0.0004589557647705078
-Score achieved: 0. Turns it took: 0
 0.0006339550018310547
-Score achieved: 0. Turns it took: 0
 0.003556966781616211
-Score achieved: 0. Turns it took: 0
 0.000789642333984375
-Score achieved: 0. Turns it took: 0
 0.001405954360961914
-Score achieved: 0. Turns it took: 0
 0.0017752647399902344
-Score achieved: 0. Turns it took: 0
 0.00020170211791992188
-Score achieved: 0. Turns it took: 0
 0.001184225082397461
-Score achieved: 0. Turns it took: 0
 0.00028896331787109375
-Score achieved: 0. Turns it took: 0
 0.0032835006713867188
 measuring done
 mean is: 0.0021248817443847655
 
 # Obstacle complexity = 15
 0.0008571147918701172
-Score achieved: 0. Turns it took: 0
 0.0025482177734375
-Score achieved: 0. Turns it took: 0
 0.0035538673400878906
-Score achieved: 0. Turns it took: 0
 0.003150463104248047
-Score achieved: 0. Turns it took: 0
 0.0052490234375
-Score achieved: 0. Turns it took: 0
 0.0009784698486328125
-Score achieved: 0. Turns it took: 0
 0.001458883285522461
-Score achieved: 0. Turns it took: 0
 0.0029311180114746094
-Score achieved: 0. Turns it took: 0
 0.0032994747161865234
-Score achieved: 0. Turns it took: 0
 0.0014157295227050781
-Score achieved: 0. Turns it took: 0
 0.0002472400665283203
-Score achieved: 0. Turns it took: 0
 0.0009336471557617188
-Score achieved: 0. Turns it took: 0
 0.0016238689422607422
-Score achieved: 0. Turns it took: 0
 0.0013575553894042969
-Score achieved: 0. Turns it took: 0
 0.0005092620849609375
-Score achieved: 0. Turns it took: 0
 0.00034809112548828125
-Score achieved: 0. Turns it took: 0
 0.0006511211395263672
-Score achieved: 0. Turns it took: 0
 0.0027763843536376953
-Score achieved: 0. Turns it took: 0
 0.0022428035736083984
-Score achieved: 0. Turns it took: 0
 0.0010273456573486328
-Score achieved: 0. Turns it took: 0
 0.002181529998779297
-Score achieved: 0. Turns it took: 0
 0.0008015632629394531
-Score achieved: 0. Turns it took: 0
 0.0012359619140625
-Score achieved: 0. Turns it took: 0
 0.0017402172088623047
-Score achieved: 0. Turns it took: 0
 0.0008254051208496094
-Score achieved: 0. Turns it took: 0
 0.00022864341735839844
-Score achieved: 0. Turns it took: 0
 0.0022804737091064453
-Score achieved: 0. Turns it took: 0
 0.0007762908935546875
-Score achieved: 0. Turns it took: 0
 0.001417398452758789
-Score achieved: 0. Turns it took: 0
 0.0010764598846435547
 measuring done
 mean is: 0.0016574541727701823
 
 # Obstacle complexity = 20
 0.0006546974182128906
-Score achieved: 0. Turns it took: 0
 0.00014662742614746094
-Score achieved: 0. Turns it took: 0
 0.0014622211456298828
-Score achieved: 0. Turns it took: 0
 0.00225067138671875
-Score achieved: 0. Turns it took: 0
 0.0009217262268066406
-Score achieved: 0. Turns it took: 0
 0.0010030269622802734
-Score achieved: 0. Turns it took: 0
 0.0013756752014160156
-Score achieved: 0. Turns it took: 0
 0.0001404285430908203
-Score achieved: 0. Turns it took: 0
 8.7738037109375e-05
-Score achieved: 0. Turns it took: 0
 0.0006597042083740234
-Score achieved: 0. Turns it took: 0
 0.002077341079711914
-Score achieved: 0. Turns it took: 0
 0.00029921531677246094
-Score achieved: 0. Turns it took: 0
 0.0007238388061523438
-Score achieved: 0. Turns it took: 0
 0.0009839534759521484
-Score achieved: 0. Turns it took: 0
 0.00015735626220703125
-Score achieved: 0. Turns it took: 0
 0.0007708072662353516
-Score achieved: 0. Turns it took: 0
 4.172325134277344e-05
-Score achieved: 0. Turns it took: 0
 0.0014543533325195312
-Score achieved: 0. Turns it took: 0
 0.00018405914306640625
-Score achieved: 0. Turns it took: 0
 0.00034499168395996094
-Score achieved: 0. Turns it took: 0
 0.001032114028930664
-Score achieved: 0. Turns it took: 0
 0.0023446083068847656
-Score achieved: 0. Turns it took: 0
 0.0009737014770507812
-Score achieved: 0. Turns it took: 0
 0.0008599758148193359
-Score achieved: 0. Turns it took: 0
 0.0010364055633544922
-Score achieved: 0. Turns it took: 0
 0.00013875961303710938
-Score achieved: 0. Turns it took: 0
 0.0027251243591308594
-Score achieved: 0. Turns it took: 0
 0.0005667209625244141
-Score achieved: 0. Turns it took: 0
 0.0005435943603515625
-Score achieved: 0. Turns it took: 0
 0.0022003650665283203
 measuring done
 mean is: 0.000938717524210612
 
 # Obstacle complexity = 25
 0.00046896934509277344
-Score achieved: 0. Turns it took: 0
 0.0013115406036376953
-Score achieved: 0. Turns it took: 0
 0.0017960071563720703
-Score achieved: 0. Turns it took: 0
 0.002801179885864258
-Score achieved: 0. Turns it took: 0
 0.0006010532379150391
-Score achieved: 0. Turns it took: 0
 0.0004584789276123047
-Score achieved: 0. Turns it took: 0
 0.001119375228881836
-Score achieved: 0. Turns it took: 0
 0.0002257823944091797
-Score achieved: 0. Turns it took: 0
 0.0007882118225097656
-Score achieved: 0. Turns it took: 0
 0.00037741661071777344
-Score achieved: 0. Turns it took: 0
 0.0010614395141601562
-Score achieved: 0. Turns it took: 0
 0.00012135505676269531
-Score achieved: 0. Turns it took: 0
 0.0008168220520019531
-Score achieved: 0. Turns it took: 0
 0.0007836818695068359
-Score achieved: 0. Turns it took: 0
 0.0006327629089355469
-Score achieved: 0. Turns it took: 0
 0.0009553432464599609
-Score achieved: 0. Turns it took: 0
 0.0011396408081054688
-Score achieved: 0. Turns it took: 0
 0.00011229515075683594
-Score achieved: 0. Turns it took: 0
 0.0006470680236816406
-Score achieved: 0. Turns it took: 0
 0.0008394718170166016
-Score achieved: 0. Turns it took: 0
 0.0008881092071533203
-Score achieved: 0. Turns it took: 0
 0.0003802776336669922
-Score achieved: 0. Turns it took: 0
 0.001554727554321289
-Score achieved: 0. Turns it took: 0
 0.0008265972137451172
-Score achieved: 0. Turns it took: 0
 0.0002281665802001953
-Score achieved: 0. Turns it took: 0
 0.0017979145050048828
-Score achieved: 0. Turns it took: 0
 0.00011491775512695312
-Score achieved: 0. Turns it took: 0
 0.00040602684020996094
-Score achieved: 0. Turns it took: 0
 0.0010251998901367188
-Score achieved: 0. Turns it took: 0
 0.0002796649932861328
 measuring done
 mean is: 0.0008186499277750651
 
 # Obstacle complexity = 30
 0.0017566680908203125
-Score achieved: 0. Turns it took: 0
 0.0008938312530517578
-Score achieved: 0. Turns it took: 0
 0.0008296966552734375
-Score achieved: 0. Turns it took: 0
 0.0004966259002685547
-Score achieved: 0. Turns it took: 0
 0.009746551513671875
-Score achieved: 0. Turns it took: 0
 0.0010170936584472656
-Score achieved: 0. Turns it took: 0
 0.00012373924255371094
-Score achieved: 0. Turns it took: 0
 0.0004611015319824219
-Score achieved: 0. Turns it took: 0
 0.0019450187683105469
-Score achieved: 0. Turns it took: 0
 0.00027561187744140625
-Score achieved: 0. Turns it took: 0
 0.0006995201110839844
-Score achieved: 0. Turns it took: 0
 0.0008234977722167969
-Score achieved: 0. Turns it took: 0
 0.0007803440093994141
-Score achieved: 0. Turns it took: 0
 0.0002002716064453125
-Score achieved: 0. Turns it took: 0
 0.0017251968383789062
-Score achieved: 0. Turns it took: 0
 0.0008080005645751953
-Score achieved: 0. Turns it took: 0
 0.005320310592651367
-Score achieved: 0. Turns it took: 0
 0.0027866363525390625
-Score achieved: 0. Turns it took: 0
 0.0027494430541992188
-Score achieved: 0. Turns it took: 0
 0.0002999305725097656
-Score achieved: 0. Turns it took: 0
 0.0007319450378417969
-Score achieved: 0. Turns it took: 0
 0.0006074905395507812
-Score achieved: 0. Turns it took: 0
 0.000823974609375
-Score achieved: 0. Turns it took: 0
 0.0013866424560546875
-Score achieved: 0. Turns it took: 0
 0.0001583099365234375
-Score achieved: 0. Turns it took: 0
 0.001210927963256836
-Score achieved: 0. Turns it took: 0
 0.0021276473999023438
-Score achieved: 0. Turns it took: 0
 0.0008938312530517578
-Score achieved: 0. Turns it took: 0
 0.0001494884490966797
-Score achieved: 0. Turns it took: 0
 0.0008618831634521484
 measuring done
 mean is: 0.0014230410257975261
 
 # Obstacle complexity = 35
 0.003826141357421875
-Score achieved: 0. Turns it took: 0
 0.0014030933380126953
-Score achieved: 0. Turns it took: 0
 0.0013468265533447266
-Score achieved: 0. Turns it took: 0
 0.011377096176147461
-Score achieved: 0. Turns it took: 0
 0.0019576549530029297
-Score achieved: 0. Turns it took: 0
 0.0011661052703857422
-Score achieved: 0. Turns it took: 0
 0.0027968883514404297
-Score achieved: 0. Turns it took: 0
 0.0014319419860839844
-Score achieved: 0. Turns it took: 0
 0.0007231235504150391
-Score achieved: 0. Turns it took: 0
 0.0003361701965332031
-Score achieved: 0. Turns it took: 0
 0.0010752677917480469
-Score achieved: 0. Turns it took: 0
 0.0003876686096191406
-Score achieved: 0. Turns it took: 0
 0.001028299331665039
-Score achieved: 0. Turns it took: 0
 0.001112222671508789
-Score achieved: 0. Turns it took: 0
 0.0016269683837890625
-Score achieved: 0. Turns it took: 0
 0.0002105236053466797
-Score achieved: 0. Turns it took: 0
 0.0035533905029296875
-Score achieved: 0. Turns it took: 0
 0.0013861656188964844
-Score achieved: 0. Turns it took: 0
 0.00032258033752441406
-Score achieved: 0. Turns it took: 0
 0.0011777877807617188
-Score achieved: 0. Turns it took: 0
 0.0022215843200683594
-Score achieved: 0. Turns it took: 0
 0.0014443397521972656
-Score achieved: 0. Turns it took: 0
 0.0007534027099609375
-Score achieved: 0. Turns it took: 0
 0.0007894039154052734
-Score achieved: 0. Turns it took: 0
 0.0005509853363037109
-Score achieved: 0. Turns it took: 0
 0.0005326271057128906
-Score achieved: 0. Turns it took: 0
 0.002216339111328125
-Score achieved: 0. Turns it took: 0
 0.000354766845703125
-Score achieved: 0. Turns it took: 0
 0.0013842582702636719
-Score achieved: 0. Turns it took: 0
 0.0017006397247314453
 measuring done
 mean is: 0.0016731421152750652
 
 # Obstacle complexity = 40
 0.004178285598754883
-Score achieved: 0. Turns it took: 0
 0.0003600120544433594
-Score achieved: 0. Turns it took: 0
 0.0021529197692871094
-Score achieved: 0. Turns it took: 0
 0.0006110668182373047
-Score achieved: 0. Turns it took: 0
 0.0030236244201660156
-Score achieved: 0. Turns it took: 0
 0.0029935836791992188
-Score achieved: 0. Turns it took: 0
 0.00011229515075683594
-Score achieved: 0. Turns it took: 0
 0.0006449222564697266
-Score achieved: 0. Turns it took: 0
 0.0006051063537597656
-Score achieved: 0. Turns it took: 0
 0.0006201267242431641
-Score achieved: 0. Turns it took: 0
 0.0008320808410644531
-Score achieved: 0. Turns it took: 0
 0.00017070770263671875
-Score achieved: 0. Turns it took: 0
 0.0002574920654296875
-Score achieved: 0. Turns it took: 0
 0.0002827644348144531
-Score achieved: 0. Turns it took: 0
 0.00020885467529296875
-Score achieved: 0. Turns it took: 0
 0.0009965896606445312
-Score achieved: 0. Turns it took: 0
 0.0002028942108154297
-Score achieved: 0. Turns it took: 0
 0.0007853507995605469
-Score achieved: 0. Turns it took: 0
 0.00046062469482421875
-Score achieved: 0. Turns it took: 0
 0.0009181499481201172
-Score achieved: 0. Turns it took: 0
 0.0006022453308105469
-Score achieved: 0. Turns it took: 0
 0.0005936622619628906
-Score achieved: 0. Turns it took: 0
 0.0013911724090576172
-Score achieved: 0. Turns it took: 0
 0.0016589164733886719
-Score achieved: 0. Turns it took: 0
 0.002988576889038086
-Score achieved: 0. Turns it took: 0
 0.0010330677032470703
-Score achieved: 0. Turns it took: 0
 6.103515625e-05
-Score achieved: 0. Turns it took: 0
 0.0013430118560791016
-Score achieved: 0. Turns it took: 0
 0.0017383098602294922
-Score achieved: 0. Turns it took: 0
 0.0005083084106445312
 measuring done
 mean is: 0.0010778586069742839
 
 # Obstacle complexity = 45
 0.004739999771118164
-Score achieved: 0. Turns it took: 0
 0.006920337677001953
-Score achieved: 0. Turns it took: 0
 0.001191854476928711
-Score achieved: 0. Turns it took: 0
 0.0020599365234375
-Score achieved: 0. Turns it took: 0
 0.00042438507080078125
-Score achieved: 0. Turns it took: 0
 0.0010440349578857422
-Score achieved: 0. Turns it took: 0
 0.00012755393981933594
-Score achieved: 0. Turns it took: 0
 7.390975952148438e-05
-Score achieved: 0. Turns it took: 0
 0.0008604526519775391
-Score achieved: 0. Turns it took: 0
 0.0003962516784667969
-Score achieved: 0. Turns it took: 0
 0.0005669593811035156
-Score achieved: 0. Turns it took: 0
 0.0015568733215332031
-Score achieved: 0. Turns it took: 0
 0.0017962455749511719
-Score achieved: 0. Turns it took: 0
 0.00015497207641601562
-Score achieved: 0. Turns it took: 0
 0.0007417201995849609
-Score achieved: 0. Turns it took: 0
 0.00020956993103027344
-Score achieved: 0. Turns it took: 0
 0.0001735687255859375
-Score achieved: 0. Turns it took: 0
 0.001984119415283203
-Score achieved: 0. Turns it took: 0
 0.00034117698669433594
-Score achieved: 0. Turns it took: 0
 0.0001919269561767578
-Score achieved: 0. Turns it took: 0
 0.0002906322479248047
-Score achieved: 0. Turns it took: 0
 0.0003845691680908203
-Score achieved: 0. Turns it took: 0
 0.00043773651123046875
-Score achieved: 0. Turns it took: 0
 0.00030493736267089844
-Score achieved: 0. Turns it took: 0
 0.001168966293334961
-Score achieved: 0. Turns it took: 0
 0.0011382102966308594
-Score achieved: 0. Turns it took: 0
 0.0025823116302490234
-Score achieved: 0. Turns it took: 0
 0.0019495487213134766
-Score achieved: 0. Turns it took: 0
 0.0005748271942138672
-Score achieved: 0. Turns it took: 0
 0.0003204345703125
 measuring done
 mean is: 0.0011569341023763022
 
 # Obstacle complexity = 50
 0.001260519027709961
-Score achieved: 0. Turns it took: 0
 0.0009312629699707031
-Score achieved: 0. Turns it took: 0
 0.0011432170867919922
-Score achieved: 0. Turns it took: 0
 0.001659393310546875
-Score achieved: 0. Turns it took: 0
 0.002669811248779297
-Score achieved: 0. Turns it took: 0
 0.0009837150573730469
-Score achieved: 0. Turns it took: 0
 0.00028252601623535156
-Score achieved: 0. Turns it took: 0
 0.00252532958984375
-Score achieved: 0. Turns it took: 0
 0.0015826225280761719
-Score achieved: 0. Turns it took: 0
 0.0008704662322998047
-Score achieved: 0. Turns it took: 0
 0.003165721893310547
-Score achieved: 0. Turns it took: 0
 0.0019571781158447266
-Score achieved: 0. Turns it took: 0
 0.0005159378051757812
-Score achieved: 0. Turns it took: 0
 0.00782632827758789
-Score achieved: 0. Turns it took: 0
 0.0041544437408447266
-Score achieved: 0. Turns it took: 0
 0.002043485641479492
-Score achieved: 0. Turns it took: 0
 0.0014731884002685547
-Score achieved: 0. Turns it took: 0
 0.0006799697875976562
-Score achieved: 0. Turns it took: 0
 0.0010495185852050781
-Score achieved: 0. Turns it took: 0
 0.0012631416320800781
-Score achieved: 0. Turns it took: 0
 0.0003154277801513672
-Score achieved: 0. Turns it took: 0
 0.0036733150482177734
-Score achieved: 0. Turns it took: 0
 0.0012431144714355469
-Score achieved: 0. Turns it took: 0
 0.0012769699096679688
-Score achieved: 0. Turns it took: 0
 0.0008473396301269531
-Score achieved: 0. Turns it took: 0
 0.0023920536041259766
-Score achieved: 0. Turns it took: 0
 0.0006132125854492188
-Score achieved: 0. Turns it took: 0
 0.0007047653198242188
-Score achieved: 0. Turns it took: 0
 0.005580902099609375
-Score achieved: 0. Turns it took: 0
 0.0008203983306884766
 measuring done
 mean is: 0.0018501758575439453
 
 # Obstacle complexity = 55
 0.0019185543060302734
-Score achieved: 0. Turns it took: 0
 0.0012674331665039062
-Score achieved: 0. Turns it took: 0
 0.00047135353088378906
-Score achieved: 0. Turns it took: 0
 0.0024199485778808594
-Score achieved: 0. Turns it took: 0
 0.0008707046508789062
-Score achieved: 0. Turns it took: 0
 0.0008590221405029297
-Score achieved: 0. Turns it took: 0
 0.002133607864379883
-Score achieved: 0. Turns it took: 0
 0.0017604827880859375
-Score achieved: 0. Turns it took: 0
 0.004880666732788086
-Score achieved: 0. Turns it took: 0
 0.0006248950958251953
-Score achieved: 0. Turns it took: 0
 0.00026917457580566406
-Score achieved: 0. Turns it took: 0
 0.002395153045654297
-Score achieved: 0. Turns it took: 0
 0.0004999637603759766
-Score achieved: 0. Turns it took: 0
 0.00020503997802734375
-Score achieved: 0. Turns it took: 0
 0.0012044906616210938
-Score achieved: 0. Turns it took: 0
 0.00035119056701660156
-Score achieved: 0. Turns it took: 0
 0.0004687309265136719
-Score achieved: 0. Turns it took: 0
 0.0006999969482421875
-Score achieved: 0. Turns it took: 0
 0.0010228157043457031
-Score achieved: 0. Turns it took: 0
 0.0005559921264648438
-Score achieved: 0. Turns it took: 0
 0.0027136802673339844
-Score achieved: 0. Turns it took: 0
 0.0005769729614257812
-Score achieved: 0. Turns it took: 0
 6.461143493652344e-05
-Score achieved: 0. Turns it took: 0
 0.0009284019470214844
-Score achieved: 0. Turns it took: 0
 0.0002505779266357422
-Score achieved: 0. Turns it took: 0
 0.0007333755493164062
-Score achieved: 0. Turns it took: 0
 0.0029850006103515625
-Score achieved: 0. Turns it took: 0
 0.000865936279296875
-Score achieved: 0. Turns it took: 0
 0.0005123615264892578
-Score achieved: 0. Turns it took: 0
 0.006952762603759766
 measuring done
 mean is: 0.0013820966084798177
 
 # Obstacle complexity = 60
 0.007360935211181641
-Score achieved: 0. Turns it took: 0
 0.0048675537109375
-Score achieved: 0. Turns it took: 0
 0.00787663459777832
-Score achieved: 0. Turns it took: 0
 0.0006825923919677734
-Score achieved: 0. Turns it took: 0
 0.002377033233642578
-Score achieved: 0. Turns it took: 0
 0.0016510486602783203
-Score achieved: 0. Turns it took: 0
 0.0009102821350097656
-Score achieved: 0. Turns it took: 0
 0.00015544891357421875
-Score achieved: 0. Turns it took: 0
 0.0004978179931640625
-Score achieved: 0. Turns it took: 0
 0.0024480819702148438
-Score achieved: 0. Turns it took: 0
 0.0011730194091796875
-Score achieved: 0. Turns it took: 0
 0.0012133121490478516
-Score achieved: 0. Turns it took: 0
 0.0004227161407470703
-Score achieved: 0. Turns it took: 0
 0.002979278564453125
-Score achieved: 0. Turns it took: 0
 0.0026535987854003906
-Score achieved: 0. Turns it took: 0
 0.001108407974243164
-Score achieved: 0. Turns it took: 0
 0.000385284423828125
-Score achieved: 0. Turns it took: 0
 0.0007631778717041016
-Score achieved: 0. Turns it took: 0
 0.0002758502960205078
-Score achieved: 0. Turns it took: 0
 0.0007119178771972656
-Score achieved: 0. Turns it took: 0
 0.00484919548034668
-Score achieved: 0. Turns it took: 0
 0.004202842712402344
-Score achieved: 0. Turns it took: 0
 0.0013346672058105469
-Score achieved: 0. Turns it took: 0
 0.003054380416870117
-Score achieved: 0. Turns it took: 0
 0.0005044937133789062
-Score achieved: 0. Turns it took: 0
 0.0015633106231689453
-Score achieved: 0. Turns it took: 0
 0.0004961490631103516
-Score achieved: 0. Turns it took: 0
 0.0019690990447998047
-Score achieved: 0. Turns it took: 0
 0.0009167194366455078
-Score achieved: 0. Turns it took: 0
 0.004075527191162109
 measuring done
 mean is: 0.0021160125732421877
 
 # Obstacle complexity = 65
 0.002568483352661133
-Score achieved: 0. Turns it took: 0
 0.0014562606811523438
-Score achieved: 0. Turns it took: 0
 0.0005764961242675781
-Score achieved: 0. Turns it took: 0
 0.0006778240203857422
-Score achieved: 0. Turns it took: 0
 0.005280494689941406
-Score achieved: 0. Turns it took: 0
 0.0028655529022216797
-Score achieved: 0. Turns it took: 0
 0.0003838539123535156
-Score achieved: 0. Turns it took: 0
 0.0009839534759521484
-Score achieved: 0. Turns it took: 0
 0.0005679130554199219
-Score achieved: 0. Turns it took: 0
 0.0012111663818359375
-Score achieved: 0. Turns it took: 0
 0.0016238689422607422
-Score achieved: 0. Turns it took: 0
 0.00019478797912597656
-Score achieved: 0. Turns it took: 0
 0.0014722347259521484
-Score achieved: 0. Turns it took: 0
 0.0008218288421630859
-Score achieved: 0. Turns it took: 0
 0.0020189285278320312
-Score achieved: 0. Turns it took: 0
 0.0002968311309814453
-Score achieved: 0. Turns it took: 0
 0.0027158260345458984
-Score achieved: 0. Turns it took: 0
 0.0006604194641113281
-Score achieved: 0. Turns it took: 0
 0.00037741661071777344
-Score achieved: 0. Turns it took: 0
 0.000911712646484375
-Score achieved: 0. Turns it took: 0
 0.0003840923309326172
-Score achieved: 0. Turns it took: 0
 0.0032300949096679688
-Score achieved: 0. Turns it took: 0
 0.0015935897827148438
-Score achieved: 0. Turns it took: 0
 0.0001342296600341797
-Score achieved: 0. Turns it took: 0
 0.0015342235565185547
-Score achieved: 0. Turns it took: 0
 0.00014734268188476562
-Score achieved: 0. Turns it took: 0
 0.0017521381378173828
-Score achieved: 0. Turns it took: 0
 0.0009891986846923828
-Score achieved: 0. Turns it took: 0
 0.0006701946258544922
-Score achieved: 0. Turns it took: 0
 0.001627206802368164
 measuring done
 mean is: 0.0013242721557617187
 
 # Obstacle complexity = 70
 0.0043506622314453125
-Score achieved: 0. Turns it took: 0
 0.0014209747314453125
-Score achieved: 0. Turns it took: 0
 0.0026450157165527344
-Score achieved: 0. Turns it took: 0
 0.0033681392669677734
-Score achieved: 0. Turns it took: 0
 0.0006542205810546875
-Score achieved: 0. Turns it took: 0
 0.0030679702758789062
-Score achieved: 0. Turns it took: 0
 0.0007991790771484375
-Score achieved: 0. Turns it took: 0
 0.0009679794311523438
-Score achieved: 0. Turns it took: 0
 0.0051877498626708984
-Score achieved: 0. Turns it took: 0
 0.0004851818084716797
-Score achieved: 0. Turns it took: 0
 0.0006289482116699219
-Score achieved: 0. Turns it took: 0
 0.00017976760864257812
-Score achieved: 0. Turns it took: 0
 0.00035858154296875
-Score achieved: 0. Turns it took: 0
 0.00037741661071777344
-Score achieved: 0. Turns it took: 0
 0.0013089179992675781
-Score achieved: 0. Turns it took: 0
 0.0001804828643798828
-Score achieved: 0. Turns it took: 0
 0.00017642974853515625
-Score achieved: 0. Turns it took: 0
 0.000438690185546875
-Score achieved: 0. Turns it took: 0
 0.001956939697265625
-Score achieved: 0. Turns it took: 0
 0.000568389892578125
-Score achieved: 0. Turns it took: 0
 0.0009210109710693359
-Score achieved: 0. Turns it took: 0
 0.0005347728729248047
-Score achieved: 0. Turns it took: 0
 0.0014548301696777344
-Score achieved: 0. Turns it took: 0
 0.004893064498901367
-Score achieved: 0. Turns it took: 0
 0.00013685226440429688
-Score achieved: 0. Turns it took: 0
 0.0027246475219726562
-Score achieved: 0. Turns it took: 0
 0.00041985511779785156
-Score achieved: 0. Turns it took: 0
 0.0063228607177734375
-Score achieved: 0. Turns it took: 0
 0.0035686492919921875
-Score achieved: 0. Turns it took: 0
 0.0013473033905029297
 measuring done
 mean is: 0.0017148494720458985
 
 # Obstacle complexity = 75
 0.004320383071899414
-Score achieved: 0. Turns it took: 0
 0.0003235340118408203
-Score achieved: 0. Turns it took: 0
 0.00042057037353515625
-Score achieved: 0. Turns it took: 0
 0.003265857696533203
-Score achieved: 0. Turns it took: 0
 0.001493692398071289
-Score achieved: 0. Turns it took: 0
 0.0013377666473388672
-Score achieved: 0. Turns it took: 0
 0.0002949237823486328
-Score achieved: 0. Turns it took: 0
 0.0001728534698486328
-Score achieved: 0. Turns it took: 0
 0.00025582313537597656
-Score achieved: 0. Turns it took: 0
 0.001268148422241211
-Score achieved: 0. Turns it took: 0
 0.00013303756713867188
-Score achieved: 0. Turns it took: 0
 0.0005524158477783203
-Score achieved: 0. Turns it took: 0
 0.0017271041870117188
-Score achieved: 0. Turns it took: 0
 0.00020503997802734375
-Score achieved: 0. Turns it took: 0
 0.0002777576446533203
-Score achieved: 0. Turns it took: 0
 0.003067493438720703
-Score achieved: 0. Turns it took: 0
 0.000682830810546875
-Score achieved: 0. Turns it took: 0
 0.0009636878967285156
-Score achieved: 0. Turns it took: 0
 0.0003552436828613281
-Score achieved: 0. Turns it took: 0
 0.000820159912109375
-Score achieved: 0. Turns it took: 0
 0.0001633167266845703
-Score achieved: 0. Turns it took: 0
 0.0007150173187255859
-Score achieved: 0. Turns it took: 0
 0.0002624988555908203
-Score achieved: 0. Turns it took: 0
 0.0024962425231933594
-Score achieved: 0. Turns it took: 0
 0.0006754398345947266
-Score achieved: 0. Turns it took: 0
 0.0011186599731445312
-Score achieved: 0. Turns it took: 0
 0.0006573200225830078
-Score achieved: 0. Turns it took: 0
 0.000171661376953125
-Score achieved: 0. Turns it took: 0
 0.0016663074493408203
-Score achieved: 0. Turns it took: 0
 0.0006597042083740234
 measuring done
 mean is: 0.0010174830754597981
 
 # Obstacle complexity = 80
 0.0003178119659423828
-Score achieved: 0. Turns it took: 0
 0.0007574558258056641
-Score achieved: 0. Turns it took: 0
 0.0018427371978759766
-Score achieved: 0. Turns it took: 0
 0.0023157596588134766
-Score achieved: 0. Turns it took: 0
 0.001844167709350586
-Score achieved: 0. Turns it took: 0
 0.0021288394927978516
-Score achieved: 0. Turns it took: 0
 0.0006117820739746094
-Score achieved: 0. Turns it took: 0
 0.0008234977722167969
-Score achieved: 0. Turns it took: 0
 7.510185241699219e-05
-Score achieved: 0. Turns it took: 0
 0.0011534690856933594
-Score achieved: 0. Turns it took: 0
 0.0005829334259033203
-Score achieved: 0. Turns it took: 0
 0.0008676052093505859
-Score achieved: 0. Turns it took: 0
 4.4345855712890625e-05
-Score achieved: 0. Turns it took: 0
 0.0005750656127929688
-Score achieved: 0. Turns it took: 0
 0.0003070831298828125
-Score achieved: 0. Turns it took: 0
 0.0003578662872314453
-Score achieved: 0. Turns it took: 0
 0.00025582313537597656
-Score achieved: 0. Turns it took: 0
 0.00037670135498046875
-Score achieved: 0. Turns it took: 0
 0.0005693435668945312
-Score achieved: 0. Turns it took: 0
 0.0011339187622070312
-Score achieved: 0. Turns it took: 0
 0.0006425380706787109
-Score achieved: 0. Turns it took: 0
 0.0007054805755615234
-Score achieved: 0. Turns it took: 0
 0.0008025169372558594
-Score achieved: 0. Turns it took: 0
 0.0006589889526367188
-Score achieved: 0. Turns it took: 0
 0.0006473064422607422
-Score achieved: 0. Turns it took: 0
 0.0004968643188476562
-Score achieved: 0. Turns it took: 0
 0.0001888275146484375
-Score achieved: 0. Turns it took: 0
 6.771087646484375e-05
-Score achieved: 0. Turns it took: 0
 0.0009295940399169922
-Score achieved: 0. Turns it took: 0
 0.0006320476531982422
 measuring done
 mean is: 0.0007571061452229818
 
 # Obstacle complexity = 85
 0.0015745162963867188
-Score achieved: 0. Turns it took: 0
 0.0007762908935546875
-Score achieved: 0. Turns it took: 0
 0.0026111602783203125
-Score achieved: 0. Turns it took: 0
 0.0012974739074707031
-Score achieved: 0. Turns it took: 0
 0.0021429061889648438
-Score achieved: 0. Turns it took: 0
 0.0015306472778320312
-Score achieved: 0. Turns it took: 0
 0.00016188621520996094
-Score achieved: 0. Turns it took: 0
 0.0007398128509521484
-Score achieved: 0. Turns it took: 0
 0.0003745555877685547
-Score achieved: 0. Turns it took: 0
 0.0006570816040039062
-Score achieved: 0. Turns it took: 0
 0.00025391578674316406
-Score achieved: 0. Turns it took: 0
 0.0010194778442382812
-Score achieved: 0. Turns it took: 0
 0.00024509429931640625
-Score achieved: 0. Turns it took: 0
 0.001110076904296875
-Score achieved: 0. Turns it took: 0
 0.0007424354553222656
-Score achieved: 0. Turns it took: 0
 0.0002391338348388672
-Score achieved: 0. Turns it took: 0
 0.0009322166442871094
-Score achieved: 0. Turns it took: 0
 0.0006470680236816406
-Score achieved: 0. Turns it took: 0
 0.00012350082397460938
-Score achieved: 0. Turns it took: 0
 0.0008037090301513672
-Score achieved: 0. Turns it took: 0
 0.0024261474609375
-Score achieved: 0. Turns it took: 0
 0.0017218589782714844
-Score achieved: 0. Turns it took: 0
 0.00031828880310058594
-Score achieved: 0. Turns it took: 0
 0.0020186901092529297
-Score achieved: 0. Turns it took: 0
 0.00018095970153808594
-Score achieved: 0. Turns it took: 0
 0.00025963783264160156
-Score achieved: 0. Turns it took: 0
 0.0014503002166748047
-Score achieved: 0. Turns it took: 0
 0.0005230903625488281
-Score achieved: 0. Turns it took: 0
 0.0010919570922851562
-Score achieved: 0. Turns it took: 0
 0.0016698837280273438
 measuring done
 mean is: 0.0009881258010864258
 
 # Obstacle complexity = 90
 0.0014989376068115234
-Score achieved: 0. Turns it took: 0
 0.0035605430603027344
-Score achieved: 0. Turns it took: 0
 0.0015425682067871094
-Score achieved: 0. Turns it took: 0
 0.003824472427368164
-Score achieved: 0. Turns it took: 0
 0.0013630390167236328
-Score achieved: 0. Turns it took: 0
 0.003495931625366211
-Score achieved: 0. Turns it took: 0
 0.0006535053253173828
-Score achieved: 0. Turns it took: 0
 8.58306884765625e-05
-Score achieved: 0. Turns it took: 0
 0.0011856555938720703
-Score achieved: 0. Turns it took: 0
 6.556510925292969e-05
-Score achieved: 0. Turns it took: 0
 0.0007765293121337891
-Score achieved: 0. Turns it took: 0
 0.0005211830139160156
-Score achieved: 0. Turns it took: 0
 0.00012350082397460938
-Score achieved: 0. Turns it took: 0
 0.0008597373962402344
-Score achieved: 0. Turns it took: 0
 0.0003077983856201172
-Score achieved: 0. Turns it took: 0
 0.0004267692565917969
-Score achieved: 0. Turns it took: 0
 0.0006701946258544922
-Score achieved: 0. Turns it took: 0
 0.0002465248107910156
-Score achieved: 0. Turns it took: 0
 0.0007886886596679688
-Score achieved: 0. Turns it took: 0
 8.082389831542969e-05
-Score achieved: 0. Turns it took: 0
 0.0013890266418457031
-Score achieved: 0. Turns it took: 0
 0.0007584095001220703
-Score achieved: 0. Turns it took: 0
 0.0002536773681640625
-Score achieved: 0. Turns it took: 0
 0.0006847381591796875
-Score achieved: 0. Turns it took: 0
 0.00019884109497070312
-Score achieved: 0. Turns it took: 0
 0.0002124309539794922
-Score achieved: 0. Turns it took: 0
 0.0004169940948486328
-Score achieved: 0. Turns it took: 0
 0.0005755424499511719
-Score achieved: 0. Turns it took: 0
 0.003124237060546875
-Score achieved: 0. Turns it took: 0
 0.0001480579376220703
 measuring done
 mean is: 0.0009946584701538085
 
 # Obstacle complexity = 95
 0.0012240409851074219
-Score achieved: 0. Turns it took: 0
 0.0002415180206298828
-Score achieved: 0. Turns it took: 0
 0.0021049976348876953
-Score achieved: 0. Turns it took: 0
 0.0009565353393554688
-Score achieved: 0. Turns it took: 0
 0.00022101402282714844
-Score achieved: 0. Turns it took: 0
 0.0007712841033935547
-Score achieved: 0. Turns it took: 0
 0.0007464885711669922
-Score achieved: 0. Turns it took: 0
 0.000499725341796875
-Score achieved: 0. Turns it took: 0
 0.0003650188446044922
-Score achieved: 0. Turns it took: 0
 0.0004477500915527344
-Score achieved: 0. Turns it took: 0
 0.0029108524322509766
-Score achieved: 0. Turns it took: 0
 0.0016644001007080078
-Score achieved: 0. Turns it took: 0
 0.00023174285888671875
-Score achieved: 0. Turns it took: 0
 0.00013875961303710938
-Score achieved: 0. Turns it took: 0
 0.0007913112640380859
-Score achieved: 0. Turns it took: 0
 0.0010638236999511719
-Score achieved: 0. Turns it took: 0
 0.001699209213256836
-Score achieved: 0. Turns it took: 0
 0.0007908344268798828
-Score achieved: 0. Turns it took: 0
 8.916854858398438e-05
-Score achieved: 0. Turns it took: 0
 0.0023839473724365234
-Score achieved: 0. Turns it took: 0
 0.0031976699829101562
-Score achieved: 0. Turns it took: 0
 0.0014913082122802734
-Score achieved: 0. Turns it took: 0
 0.00018668174743652344
-Score achieved: 0. Turns it took: 0
 0.0024874210357666016
-Score achieved: 0. Turns it took: 0
 0.0005767345428466797
-Score achieved: 0. Turns it took: 0
 0.0004963874816894531
-Score achieved: 0. Turns it took: 0
 0.00023818016052246094
-Score achieved: 0. Turns it took: 0
 0.0004999637603759766
-Score achieved: 0. Turns it took: 0
 0.0005962848663330078
-Score achieved: 0. Turns it took: 0
 6.151199340820312e-05
 measuring done
 mean is: 0.0009724855422973633
 
 # Obstacle complexity = 100
 0.0011072158813476562
-Score achieved: 0. Turns it took: 0
 0.000659942626953125
-Score achieved: 0. Turns it took: 0
 0.0002932548522949219
-Score achieved: 0. Turns it took: 0
 0.0011377334594726562
-Score achieved: 0. Turns it took: 0
 0.0013248920440673828
-Score achieved: 0. Turns it took: 0
 0.0007278919219970703
-Score achieved: 0. Turns it took: 0
 0.0007936954498291016
-Score achieved: 0. Turns it took: 0
 0.0002522468566894531
-Score achieved: 0. Turns it took: 0
 6.008148193359375e-05
-Score achieved: 0. Turns it took: 0
 0.0030701160430908203
-Score achieved: 0. Turns it took: 0
 0.000156402587890625
-Score achieved: 0. Turns it took: 0
 0.0007240772247314453
-Score achieved: 0. Turns it took: 0
 0.00028061866760253906
-Score achieved: 0. Turns it took: 0
 0.0011119842529296875
-Score achieved: 0. Turns it took: 0
 0.0004987716674804688
-Score achieved: 0. Turns it took: 0
 0.0032842159271240234
-Score achieved: 0. Turns it took: 0
 0.0006766319274902344
-Score achieved: 0. Turns it took: 0
 0.001495361328125
-Score achieved: 0. Turns it took: 0
 0.00032067298889160156
-Score achieved: 0. Turns it took: 0
 0.00037097930908203125
-Score achieved: 0. Turns it took: 0
 0.0008759498596191406
-Score achieved: 0. Turns it took: 0
 0.0007417201995849609
-Score achieved: 0. Turns it took: 0
 0.003138303756713867
-Score achieved: 0. Turns it took: 0
 0.00025200843811035156
-Score achieved: 0. Turns it took: 0
 0.001611948013305664
-Score achieved: 0. Turns it took: 0
 0.0010974407196044922
-Score achieved: 0. Turns it took: 0
 0.0004875659942626953
-Score achieved: 0. Turns it took: 0
 0.000324249267578125
-Score achieved: 0. Turns it took: 0
 0.0005583763122558594
-Score achieved: 0. Turns it took: 0
 0.005169391632080078
 measuring done
 mean is: 0.0010867913564046223
