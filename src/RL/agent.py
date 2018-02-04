@@ -158,7 +158,7 @@ class RL(object):
                         reward = -0.04 + samereward
                     else:
                         for j in range(len(otherreward)):
-                            reward = reward + (0.2 / length) * otherreward[j]
+                            reward = reward + (0.2 / (length - 1)) * otherreward[j]
                         reward = -0.04 + 0.8 * highestreward + reward
 
                     self.newcells.append(Cell(x, y, True, reward))
