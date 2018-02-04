@@ -51,9 +51,9 @@ class Agent:
 
         Function: give the food a reward of 1 and let the move cost -.04.
         """
+       # print(head_position[0])
         rl = RL(board, direction, head_position)
-
-        return rl.rewards()
+        return rl.rightway()
 
     def should_redraw_board(self):
         """
@@ -91,121 +91,167 @@ class Agent:
         represents the tail and the first element represents the body part directly following the head of the snake.
         When the snake runs in its own body the following holds: head_position in body_parts.
         """
-        
+class Cell(object):
+    def __init__(self, x, y, reachable, reward):
+        self.reachable = reachable
+        self.x = x
+        self.y = y
+        self.parent = None
+        self.g = 0
+        self.h = 0
+        self.f = 0
+        self.reward = reward
+
+    def __lt__(self, other):
+        return self.f < other.f
+
 class RL(object):
     def __init__(self, board, direction, head_position):
         self.board = board
         self.direction = direction
         self.head_position = head_position
-        self.tuple = dict()
-        self.oldtuple = dict()
+        self.cells = []
         self.init_rewards()
-        self.rewards()
+        for i in range(10):
+            self.rewards()
 
     def init_rewards(self):
-        for y in range(len(self.board)):
-            for x in range(len(self.board[y])):
-                z = 1 if self.board[y][x] is GameObject.FOOD else 0
-                self.tuple[(x, y)] = z
-
-        self.oldtuple = self.tuple
-
-        print(self.tuple)
-
-#LOOPT FOUT OP MUUR EN DIE 0.8*
-    def rewards(self):
-        for j in range(len(self.board)):
-            for i in range(len(self.board[j])):
-                if self.board[i][j] == GameObject.FOOD:
-                    self.tuple[(i, j)] = 1
-                elif self.board[i][j] == GameObject.WALL:
-                    self.tuple[(i, j)] = None
+        for x in range(5):
+            for y in range(5):
+                if self.board[x][y] == GameObject.WALL:
+                    self.cells.append(Cell(x, y, False, None))
+                elif self.board[x][y] == GameObject.FOOD:
+                    self.cells.append(Cell(x, y, True, 1))
                 else:
-                    right_x, right_y = self.direction.get_new_direction(Move.RIGHT).get_xy_manipulation()
-                    straight_x, straight_y = self.direction.get_new_direction(Move.STRAIGHT).get_xy_manipulation()
-                    left_x, left_y = self.direction.get_new_direction(Move.LEFT).get_xy_manipulation()
+                    self.cells.append(Cell(x, y, True, 0))
 
-                    manright_x = right_x + i
-                    manright_y = right_y + j
-                    if(manright_y < 0 or manright_y > len(self.board) or manright_x < 0 or manright_x > (len(self.board[j]) - 1)):
-                        self.oldtuple[(manright_x, manright_y)] = 0
-                    manstraight_x = straight_x + i
-                    manstraight_y = straight_y + j
-                    if (manstraight_y < 0 or manstraight_y > len(self.board) or manstraight_x < 0 or manstraight_x > (len(self.board[j]) - 1)):
-                        self.oldtuple[(manstraight_x, manstraight_y)] = 0
-                    manleft_x = left_x + i
-                    manleft_y = left_y + j
-                    if (manleft_y < 0 or manleft_y > len(self.board) or manleft_x < 0 or manleft_x > (len(self.board[j]) - 1)):
-                        self.oldtuple[(manleft_x, manleft_y)] = 0
+    def rewards(self):
+        self.newcells = []
+        otherreward = []
+        samereward = 0
+        same = 0
+        highestreward = 0
+        reward = 0
 
-                    if (self.oldtuple[(manright_x, manright_y)] > self.oldtuple[(manstraight_x, manstraight_y)] and self.oldtuple[(manright_x, manright_y)] > self.oldtuple[(manleft_x,manleft_y)]):
-                        self.tuple[(i, j)] = -0.04 + 0.8 * self.oldtuple[(manright_x, manright_y)] + 0.1 * self.oldtuple[(manstraight_x, manstraight_y)] + 0.1 * self.oldtuple[(manleft_x, manleft_y)]
-                        print(self.tuple[(i, j)])
-                        print((i,j))
-                        print(self.oldtuple[(manright_x, manright_y)])
-                        print(self.oldtuple[(manstraight_x, manstraight_y)])
-                        print(self.oldtuple[(manleft_x, manleft_y)])
+        for x in range(5):
+            for y in range(5):
+                if self.board[x][y] == GameObject.WALL:
+                    self.newcells.append(Cell(x, y, False, None))
+                elif self.board[x][y] == GameObject.FOOD:
+                    self.newcells.append(Cell(x, y, True, 1))
+                else:
+                    adjacent = self.get_adjacent_cells(Cell(x, y, None, None))
+                    length = len(adjacent)
 
-                    elif (self.oldtuple[(manright_x, manright_y)] < self.oldtuple[(manstraight_x, manstraight_y)] and self.oldtuple[(manstraight_x, manstraight_y)] > self.oldtuple[(manleft_x,manleft_y)]):
-                        self.tuple[(i, j)] = -0.04 + 0.8 * self.oldtuple[(manstraight_x, manstraight_y)] + 0.1 * self.oldtuple[(manright_x, manright_y)] + 0.1 * self.oldtuple[(manleft_x, manleft_y)]
+                    for i in range(0, length):
+                        if adjacent[i].reward == highestreward:
+                            same = same + 1
+                            samereward = samereward + (1 / length) * adjacent[i].reward
+                            otherreward.append(adjacent[i].reward)
+                        elif adjacent[i].reward > highestreward:
+                            otherreward.append(highestreward)
+                            highestreward = adjacent[i].reward
+                        else:
+                            otherreward.append(adjacent[i].reward)
 
-                    elif (self.oldtuple[(manleft_x, manleft_y)] > self.oldtuple[(manstraight_x, manstraight_y)] and self.oldtuple[(manright_x, manright_y)] < self.oldtuple[(manleft_x,manleft_y)]):
-                        self.tuple[(i, j)] = -0.04 + 0.8 * self.oldtuple[(manleft_x, manleft_y)] + 0.1 * self.oldtuple[(manright_x, manright_y)] + 0.1 * self.oldtuple[(manstraight_x, manstraight_y)]
-
+                    if same == (length - 1):
+                        reward = -0.04 + samereward
                     else:
-                        self.tuple[(i, j)] = -0.04 + self.oldtuple[(i, j)]
-        print(self.tuple)
+                        for j in range(len(otherreward)):
+                            reward = reward + (0.2 / length) * otherreward[j]
+                        reward = -0.04 + 0.8 * highestreward + reward
+
+                    self.newcells.append(Cell(x, y, True, reward))
+                    reward = 0
+                    otherreward = []
+                    samereward = 0
+                    same = 0
+                    highestreward = 0
+
+        self.cells = self.newcells
 
 
-    def returnTuple(self):
-        return self.tuple
+    def get_adjacent_cells(self, cell):
+        x = cell.x
+        y = cell.y
+        N = y - 1
+        S = y + 1
+        E = x + 1
+        W = x - 1
+        openN = self.walkable(x, N)
+        openS = self.walkable(x, S)
+        openE = self.walkable(E, y)
+        openW = self.walkable(W, y)
+        result = []
+        if openN:
+            result.append(self.get_cell(x, N))
+        if openS:
+            result.append(self.get_cell(x, S))
+        if openE:
+            result.append(self.get_cell(E, y))
+        if openW:
+            result.append(self.get_cell(W, y))
+        return result
+
+    def walkable(self, x, y):
+        cell = self.get_cell(x, y)
+        if cell is not None:
+            return cell.reachable
+        else:
+            return False
+
+    def get_cell(self, x, y):
+        if -1 < x < 5 and -1 < y < 5:
+            return self.cells[x * 5 + y]
+        else:
+            return None
 
     def rightway(self):
-        chance = random.randint(0, 10)
+        returns = Move.STRAIGHT
 
         right_x, right_y = self.direction.get_new_direction(Move.RIGHT).get_xy_manipulation()
+        right_x = right_x + self.head_position[0]
+        right_y = right_y + self.head_position[1]
         straight_x, straight_y = self.direction.get_new_direction(Move.STRAIGHT).get_xy_manipulation()
+        straight_x = straight_x + self.head_position[0]
+        straight_y = straight_y + self.head_position[1]
         left_x, left_y = self.direction.get_new_direction(Move.LEFT).get_xy_manipulation()
+        left_x = left_x + self.head_position[0]
+        left_y = left_y + self.head_position[1]
 
-        manright_x = right_x + head_position[0]
-        manright_y = right_y + head_position[1]
-        if (manright_y < 0 or manright_y > len(self.board) or manright_x < 0 or manright_x > (len(self.board[j]) - 1)):
-            self.tuple[(manright_x, manright_y)] = 0
-        manstraight_x = straight_x + head_position[0]
-        manstraight_y = straight_y + head_position[1]
-        if (manstraight_y < 0 or manstraight_y > len(self.board) or manstraight_x < 0 or manstraight_x > (
-                len(self.board[j]) - 1)):
-            self.tuple[(manstraight_x, manstraight_y)] = 0
-        manleft_x = left_x + head_position[0]
-        manleft_y = left_y + head_position[1]
-        if (manleft_y < 0 or manleft_y > len(self.board) or manleft_x < 0 or manleft_x > (len(self.board[j]) - 1)):
-            self.tuple[(manleft_x, manleft_y)] = 0
+        rightcell = self.get_cell(right_x, right_y)
+        straightcell = self.get_cell(straight_x, straight_y)
+        leftcell = self.get_cell(left_x, left_y)
 
+        allcells = []
+        allcells.append(straightcell)
+        allcells.append(leftcell)
+        allcells.append(rightcell)
 
-        if (self.tuple[(manright_x, manright_y)] >= self.tuple[(manstraight_x, manstraight_y)] and self.tuple[
-            (manright_x, manright_y)] >= self.tuple[(manleft_x, manleft_y)]):
-            if (chance != 9 and chance != 10):
-                return Move.RIGHT
-            elif (chance == 9):
-                return Move.STRAIGHT
-            elif (chance == 10):
-                return Move.LEFT
+        heighestcell = -1
+        heighestreward = -100
 
+        for i in range(0, 3):
+            if allcells[i] is not None:
+                if allcells[i].reward is not None:
+                    if allcells[i].reward > heighestreward:
+                        heighestcell = i
+                        heighestreward = allcells[i].reward
 
-        elif (self.tuple[(manright_x, manright_y)] <= self.tuple[(manstraight_x, manstraight_y)] and self.tuple[
-            (manstraight_x, manstraight_y)] >= self.tuple[(manleft_x, manleft_y)]):
-            if (chance != 9 and chance != 10):
-                return Move.STRAIGHT
-            elif (chance == 9):
-                return Move.LEFT
-            elif (chance == 10):
-                return Move.RIGHT
+        if heighestcell == 0:
+            returns = Move.STRAIGHT
+        elif heighestcell == 1:
+            returns = Move.LEFT
+        else:
+            returns = Move.RIGHT
 
-        elif (self.tuple[(manleft_x, manleft_y)] >= self.tuple[(manstraight_x, manstraight_y)] and self.tuple[
-            (manright_x, manright_y)] <= self.tuple[(manleft_x, manleft_y)]):
-            if (chance != 9 and chance != 10):
-                return Move.LEFT
-            elif (chance == 9):
-                return Move.STRAIGHT
-            elif (chance == 10):
-                return Move.RIGHT
+        return returns
+
+    def test(self):
+        self.cells = []
+        for y in range(5):
+            self.cells.append(Cell(y, 0, True, 500))
+            self.cells.append(Cell(y, 1, True, 400))
+            self.cells.append(Cell(y, 2, True, 300))
+            self.cells.append(Cell(y, 3, True, 200))
+            self.cells.append(Cell(y, 4, True, 100))
