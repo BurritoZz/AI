@@ -17,7 +17,7 @@ board_height = 25
 # Maximum number of food blocks on the board
 food_blocks_max = 3
 # Maximum number of wall blocks on the board
-wall_blocks_max = 2
+wall_blocks_max = 3
 # Indicates whether the test setup need to be used, turn to false to use the wall_blocks_max for spawning random walls
 test_config = False
 # Number of turns to starve, -1 for disabled
