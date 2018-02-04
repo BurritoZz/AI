@@ -242,7 +242,7 @@ class RL(object):
             returns = Move.STRAIGHT
         elif heighestcell == 1:
             returns = Move.LEFT
-        else:
+        elif heighestcell == 2:
             returns = Move.RIGHT
 
         return returns
